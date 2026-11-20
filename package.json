@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "setup": "tsx --env-file-if-exists=.env.local scripts/setup.ts",
+    "content:sync": "tsx --env-file-if-exists=.env.local scripts/sync-content.ts",
     "db:generate": "drizzle-kit generate",
     "typecheck": "tsc --noEmit",
     "test": "tsx --env-file-if-exists=.env.local --conditions=react-server --test tests/core.test.ts && tsx --test tests/labs.test.tsx"

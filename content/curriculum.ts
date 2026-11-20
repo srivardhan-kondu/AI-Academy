@@ -26,6 +26,7 @@ export const MODULES = [
   { slug: "what-is-ai", school: "ai-fundamentals", order: 1, title: "What Is AI?", difficulty: "beginner", description: "Build an accurate mental model of AI: what it is, how its subfields relate, and what it cannot do." },
   { slug: "calculus-and-optimization", school: "mathematics-for-ai", order: 3, title: "Calculus and Optimization", difficulty: "beginner", description: "Slopes, derivatives and gradient descent — how models improve by going downhill." },
   { slug: "python-basics", school: "python-programming", order: 1, title: "Python Basics", difficulty: "beginner", description: "Your first programs: values, variables, types and printing results." },
+  { slug: "python-fundamentals-for-ml", school: "python-programming", order: 2, title: "Python Programming Fundamentals", difficulty: "beginner", description: "Python from the ground up for ML engineers: types, control flow, data structures, functions, errors, files, packages, environments and object-oriented design." },
   { slug: "scientific-python", school: "python-programming", order: 3, title: "Scientific Python", difficulty: "beginner", description: "NumPy arrays — the data structure underneath almost every AI library." },
   { slug: "supervised-learning", school: "machine-learning", order: 2, title: "Supervised Learning", difficulty: "beginner", description: "Learning from labelled examples: regression and classification." },
   { slug: "unsupervised-learning", school: "machine-learning", order: 3, title: "Unsupervised Learning", difficulty: "beginner", description: "Finding structure in data without labels." },
@@ -62,7 +63,7 @@ export const PATHS = [
     prerequisites: ["Comfort with basic algebra", "Python basics (or take Python for AI first)"],
     outcomes: ["Explain and visualise gradient descent", "Fit and interpret a linear regression", "Build and evaluate decision trees", "Cluster data with K-means", "Choose evaluation metrics that match the real-world cost of errors"],
     capstone: "Train, evaluate and document a prediction model, explaining your metric choice and its limitations.",
-    modules: ["python-basics", "scientific-python", "calculus-and-optimization", "supervised-learning", "unsupervised-learning", "model-evaluation", "neural-network-foundations"],
+    modules: ["python-fundamentals-for-ml", "scientific-python", "calculus-and-optimization", "supervised-learning", "unsupervised-learning", "model-evaluation", "neural-network-foundations"],
   },
   {
     slug: "generative-ai-developer", order: 4, title: "Generative AI Developer", tier: "premium", difficulty: "intermediate", minutes: 1500,
