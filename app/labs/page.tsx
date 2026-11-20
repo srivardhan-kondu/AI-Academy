@@ -11,7 +11,7 @@ export default async function LabsPage() {
   const labs = await listLabs();
   return (
     <>
-      <PageHeader eyebrow="Interactive labs" title="Don't just read about it — experiment" description="Each lab has a clear goal, useful defaults, a reset button, a guided challenge and a written explanation that works without interaction." />
+      <PageHeader eyebrow="Interactive labs" title="Don't just read about it. Experiment." description="Each lab has a clear goal, useful defaults, a reset button, a guided challenge and a written explanation that works without interaction." />
       <div className="container-page grid gap-4 py-10 md:grid-cols-2 lg:grid-cols-3">
         {labs.map((lab) => (
           <Link key={lab.id} href={`/labs/${lab.slug}`} className="card group flex flex-col p-5 hover:border-brand-300 hover:shadow">

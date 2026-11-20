@@ -98,7 +98,7 @@ export const schools = pgTable("schools", {
   title: text("title").notNull(),
   slug: text("slug").notNull().unique(),
   description: text("description").notNull().default(""),
-  level: integer("level").notNull(), // 1–4
+  level: integer("level").notNull(), // 1-4
   displayOrder: integer("display_order").notNull().default(0),
   icon: text("icon"),
   coverImage: text("cover_image"),

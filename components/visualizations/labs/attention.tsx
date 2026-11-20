@@ -53,7 +53,7 @@ export default function Attention() {
             Selected word: <strong>“{toks[q]}”</strong>. Its strongest connection is to <strong>“{toks[top.i]}”</strong> ({(top.w * 100).toFixed(0)}%). The weights always add up to 100%.
           </p>
           <p className="mt-1">
-            Attention lets each token gather information from the other tokens that matter for its meaning. “It” is ambiguous on its own — the last word of the sentence decides whether it refers to the animal or the street.
+            Attention lets each token gather information from the other tokens that matter for its meaning. “It” is ambiguous on its own. The last word of the sentence decides whether it refers to the animal or the street.
           </p>
           <p className="mt-1 text-xs text-slate-500">Illustrative weights chosen for teaching. Real transformers have many attention heads per layer, each learning different patterns, and their weights are rarely this clean.</p>
         </>

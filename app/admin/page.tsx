@@ -54,7 +54,7 @@ export default async function AdminHome() {
         <section className="card p-5">
           <h2 className="font-semibold">Recent admin activity</h2>
           <ul className="mt-3 space-y-1 text-sm text-slate-700">
-            {recent.map((r) => <li key={r.id}>{formatDate(r.createdAt)} — {r.action} {r.entityType}</li>)}
+            {recent.map((r) => <li key={r.id}>{formatDate(r.createdAt)}: {r.action} {r.entityType}</li>)}
             {!recent.length && <li className="text-slate-500">No activity yet.</li>}
           </ul>
         </section>

@@ -16,7 +16,7 @@ export default async function AdminQuizzes() {
             {rows.map(({ q, lessonTitle, lessonId }) => (
               <tr key={q.id}>
                 <td><Link href={`/admin/quizzes/${q.id}`} className="font-medium text-brand-700 underline">{q.title}</Link></td>
-                <td>{lessonId ? <Link href={`/admin/lessons/${lessonId}`} className="underline">{lessonTitle}</Link> : "—"}</td>
+                <td>{lessonId ? <Link href={`/admin/lessons/${lessonId}`} className="underline">{lessonTitle}</Link> : "n/a"}</td>
                 <td>{counts.get(q.id) ?? 0}</td>
                 <td>{q.passThreshold}%</td>
               </tr>

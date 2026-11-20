@@ -38,11 +38,11 @@ export default function LinearRegression() {
       explanation={
         <>
           <p>
-            Your line: <code className="font-mono">score = {m.toFixed(1)} × hours + {b.toFixed(1)}</code>. The dashed lines are <strong>residuals</strong> — the gap between each real score and the line&apos;s prediction.
+            Your line: <code className="font-mono">score = {m.toFixed(1)} × hours + {b.toFixed(1)}</code>. The dashed lines are <strong>residuals</strong>: the gap between each real score and the line&apos;s prediction.
           </p>
           <p className="mt-1">
             Mean squared error squares every residual and averages them, so big misses are punished more. Lower is better.{" "}
-            {done ? "Your line is now about as good as a straight line can get on this data." : cur > bestMse * 3 ? "The line is far from the points — try changing the slope first." : "Getting closer. Fine-tune the intercept."}
+            {done ? "Your line is now about as good as a straight line can get on this data." : cur > bestMse * 3 ? "The line is far from the points. Try changing the slope first." : "Getting closer. Fine-tune the intercept."}
           </p>
         </>
       }

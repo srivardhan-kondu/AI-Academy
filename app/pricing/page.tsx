@@ -28,7 +28,7 @@ export default async function PricingPage() {
   const premium = await hasPremium(user);
   return (
     <>
-      <PageHeader eyebrow="Free & Premium" title="Learn for free. Go deeper with Premium." description="The free tier is designed to help you make real progress — not to tease you. Premium adds depth, advanced practice and feedback." />
+      <PageHeader eyebrow="Free & Premium" title="Learn for free. Go deeper with Premium." description="The free tier is designed to help you make real progress, not to tease you. Premium adds depth, advanced practice and feedback." />
       <div className="container-page grid max-w-4xl gap-6 py-12 md:grid-cols-2">
         <div className="card p-6">
           <h2 className="text-xl font-bold">Free</h2>

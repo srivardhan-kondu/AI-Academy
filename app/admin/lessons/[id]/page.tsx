@@ -71,7 +71,7 @@ export default async function EditLesson({ params }: PageProps<"/admin/lessons/[
                   <p className="text-sm font-semibold">
                     <span className="mr-2 font-mono text-slate-400">{i + 1}</span>
                     {isBlockType(b.blockType) ? BLOCK_LABELS[b.blockType] : b.blockType}
-                    {"title" in b.contentJson && typeof b.contentJson.title === "string" && <span className="ml-2 font-normal text-slate-500">— {b.contentJson.title}</span>}
+                    {"title" in b.contentJson && typeof b.contentJson.title === "string" && <span className="ml-2 font-normal text-slate-500">· {b.contentJson.title}</span>}
                   </p>
                   <form action={blockAction} className="flex gap-1">
                     <input type="hidden" name="lessonId" value={id} />

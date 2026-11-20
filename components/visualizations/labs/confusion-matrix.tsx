@@ -10,7 +10,7 @@ const CASES: { score: number; label: 0 | 1 }[] = [
 ];
 const W = 420, H = 110;
 const sx = (s: number) => 16 + s * (W - 32);
-const pct = (v: number) => (Number.isFinite(v) ? `${(v * 100).toFixed(0)}%` : "—");
+const pct = (v: number) => (Number.isFinite(v) ? `${(v * 100).toFixed(0)}%` : "n/a");
 
 function Cell({ n, label, sub, good }: { n: number; label: string; sub: string; good: boolean }) {
   return (

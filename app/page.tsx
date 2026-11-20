@@ -5,7 +5,7 @@ import { PathCard } from "@/components/academy/cards";
 import { site } from "@/lib/site";
 
 const LOOP = [
-  { icon: Lightbulb, title: "Understand", text: "Plain-English explanations and honest analogies — including where they break down." },
+  { icon: Lightbulb, title: "Understand", text: "Plain-English explanations and honest analogies, including where they break down." },
   { icon: Eye, title: "Visualize", text: "Diagrams that show relationships and processes, not decoration." },
   { icon: FlaskConical, title: "Experiment", text: "Interactive labs where you change the inputs and see what happens." },
   { icon: Code2, title: "Implement", text: "Worked code examples with expected output and line-by-line reasoning." },
@@ -26,13 +26,13 @@ export default async function Home() {
             <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">{site.tagline}</h1>
             <p className="mt-4 text-xl text-slate-700">{site.promise}</p>
             <p className="mt-4 max-w-xl text-slate-600">
-              From your first “what is AI?” to transformers, RAG and production deployment — taught with visual explanations, hands-on labs and practical projects. Beginner-friendly never means shallow.
+              From your first “what is AI?” to transformers, RAG and production deployment, taught with visual explanations, hands-on labs and practical projects. Beginner-friendly never means shallow.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/get-started" className="btn-primary px-5 py-3 text-base">Find your learning path</Link>
               <Link href="/academy" className="btn-secondary px-5 py-3 text-base">Explore the Academy</Link>
             </div>
-            <p className="mt-4 text-sm text-slate-500">Foundational lessons are free — no card required.</p>
+            <p className="mt-4 text-sm text-slate-500">Foundational lessons are free: no card required.</p>
           </div>
           <div className="card self-center p-6">
             <p className="text-sm font-semibold text-slate-700">Try it now: how does a model learn?</p>
@@ -55,7 +55,7 @@ export default async function Home() {
 
       <section className="container-page py-16" aria-labelledby="loop-h">
         <h2 id="loop-h" className="text-center text-3xl font-bold text-slate-900">One learning loop, every lesson</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">We optimise for whether you can explain a concept, use it correctly and apply it — not for how many lessons you click through.</p>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">We optimise for whether you can explain a concept, use it correctly and apply it, not for how many lessons you click through.</p>
         <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {LOOP.map(({ icon: Icon, title, text }, i) => (
             <li key={title} className="card p-5">

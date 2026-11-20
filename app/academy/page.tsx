@@ -6,7 +6,7 @@ import { LEVEL_NAMES } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "AI Academy",
-  description: "Structured AI schools and learning paths — from foundations to production AI engineering.",
+  description: "Structured AI schools and learning paths, from foundations to production AI engineering.",
 };
 
 export default async function AcademyPage() {

@@ -9,7 +9,7 @@ const RINGS = [
     label: "Artificial Intelligence",
     r: 150,
     fill: "#EEF2EF",
-    text: "Any technique that lets computers perform tasks we associate with human intelligence — including hand-written rules, search and planning.",
+    text: "Any technique that lets computers perform tasks we associate with human intelligence, including hand-written rules, search and planning.",
     example: "A chess program that searches possible moves using rules written by programmers.",
   },
   {
@@ -31,9 +31,9 @@ const RINGS = [
 ] as const;
 
 const ITEMS = [
-  { text: "An expert system that diagnoses faults using hundreds of hand-written if–then rules", answer: "ai", why: "No learning from data — the knowledge is written by people. It is AI, but not machine learning." },
+  { text: "An expert system that diagnoses faults using hundreds of hand-written if-then rules", answer: "ai", why: "No learning from data. The knowledge is written by people. It is AI, but not machine learning." },
   { text: "A spam filter trained with logistic regression on labelled emails", answer: "ml", why: "It learns from labelled examples using a classic (non-deep) ML algorithm." },
-  { text: "Phone face unlock using a convolutional neural network", answer: "dl", why: "Multi-layer neural networks learning directly from images — deep learning." },
+  { text: "Phone face unlock using a convolutional neural network", answer: "dl", why: "Multi-layer neural networks learning directly from images: deep learning." },
   { text: "A movie recommender that learns from user ratings with matrix factorisation", answer: "ml", why: "It learns patterns from data, but with a classic ML technique rather than a deep network." },
   { text: "A chatbot built on a large language model", answer: "dl", why: "LLMs are very large deep neural networks (transformers)." },
   { text: "A route planner that finds the shortest path with the A* search algorithm", answer: "ai", why: "Search algorithms are classic AI techniques that do not learn from data." },
@@ -66,7 +66,7 @@ export default function AiMlDlExplorer() {
             <em>Example:</em> {ring.example}
           </p>
           <p className="mt-1 text-ink-2">
-            Each circle sits inside the previous one: all deep learning is machine learning, and all machine learning is AI — but not the other way round.
+            Each circle sits inside the previous one: all deep learning is machine learning, and all machine learning is AI, but not the other way round.
           </p>
         </>
       }
@@ -127,7 +127,7 @@ export default function AiMlDlExplorer() {
 
         <div>
           <p className="text-[1.0312rem] font-semibold text-ink">Sort each system into the right box</p>
-          <p className="mt-1 font-serif text-[1.125rem] text-ink-2">Pick the most specific category — look for the tell in how the system got its knowledge.</p>
+          <p className="mt-1 font-serif text-[1.125rem] text-ink-2">Pick the most specific category. Look for the tell in how the system got its knowledge.</p>
           <ul className="mt-4 overflow-hidden rounded-[14px] border border-line bg-surface">
             {ITEMS.map((it, i) => (
               <li key={i} className={`px-4 py-3.5 sm:px-5 ${i > 0 ? "border-t border-line" : ""}`}>

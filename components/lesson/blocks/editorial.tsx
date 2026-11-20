@@ -14,7 +14,7 @@ const ICON = { strokeWidth: 1.5, "aria-hidden": true } as const;
  * A bullet list where every item opens with a bold term ("- **Term (TT)** is …")
  * reads as a set of definitions, so it is laid out as definition rows.
  */
-const DEF_LINE = /^[-*]\s+\*\*(.+?)\*\*[:\s—–-]*(.*)$/;
+const DEF_LINE = /^[-*]\s+\*\*(.+?)\*\*[:\s\u2014\u2013-]*(.*)$/;
 
 type Chunk = { kind: "md"; text: string } | { kind: "defs"; items: { term: string; abbr?: string; body: string }[] };
 

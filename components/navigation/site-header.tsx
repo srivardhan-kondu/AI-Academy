@@ -57,7 +57,7 @@ export async function SiteHeader() {
           )}
         </div>
 
-        {/* Mobile navigation — works without JavaScript */}
+        {/* Mobile navigation. Works without JavaScript */}
         <details className="relative ml-auto lg:hidden">
           <summary className="btn-ghost list-none [&::-webkit-details-marker]:hidden" aria-label="Open menu">
             <Menu aria-hidden className="h-5 w-5" />

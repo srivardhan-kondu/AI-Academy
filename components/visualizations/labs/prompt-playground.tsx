@@ -3,15 +3,15 @@
 import { useState } from "react";
 import { LabShell } from "../lab-kit";
 
-const EMAIL = `Hi, I ordered a standing desk (order #48213) three weeks ago. It arrived with a cracked leg, I've emailed twice with photos and nobody has replied. I need this sorted before Friday because I'm starting a new job from home. Honestly about to ask for a refund. — Priya`;
+const EMAIL = `Hi, I ordered a standing desk (order #48213) three weeks ago. It arrived with a cracked leg, I've emailed twice with photos and nobody has replied. I need this sorted before Friday because I'm starting a new job from home. Honestly about to ask for a refund.\n\nPriya`;
 
 const PARTS = [
   { key: "role", label: "Role", text: "You are an experienced customer-support team lead." },
   { key: "context", label: "Context", text: `Here is a customer email:\n"""\n${EMAIL}\n"""` },
   { key: "task", label: "Clear task", text: "Summarise the email for the support agent who will handle it, and recommend the next action." },
-  { key: "format", label: "Output format", text: "Respond in exactly this format:\nIssue: <one sentence>\nUrgency: <low|medium|high> — <reason>\nCustomer sentiment: <one word>\nNext action: <one sentence>" },
+  { key: "format", label: "Output format", text: "Respond in exactly this format:\nIssue: <one sentence>\nUrgency: <low|medium|high> (<reason>)\nCustomer sentiment: <one word>\nNext action: <one sentence>" },
   { key: "constraints", label: "Constraints", text: "Do not invent order details that are not in the email. Keep the whole answer under 60 words." },
-  { key: "example", label: "Example", text: "Example output for a different email:\nIssue: Wrong size jacket delivered.\nUrgency: low — no deadline mentioned\nCustomer sentiment: neutral\nNext action: Send a prepaid return label and offer an exchange." },
+  { key: "example", label: "Example", text: "Example output for a different email:\nIssue: Wrong size jacket delivered.\nUrgency: low (no deadline mentioned)\nCustomer sentiment: neutral\nNext action: Send a prepaid return label and offer an exchange." },
 ] as const;
 type Key = (typeof PARTS)[number]["key"];
 
@@ -37,10 +37,10 @@ function simulated(on: Set<Key>): { text: string; notes: string[] } {
     };
   }
   const text =
-    "Issue: Standing desk (order #48213) arrived with a cracked leg; two emails with photos unanswered.\nUrgency: high — needed before Friday, refund threatened\nCustomer sentiment: frustrated\nNext action: Apologise today and ship an express replacement leg, confirming delivery before Friday.";
+    "Issue: Standing desk (order #48213) arrived with a cracked leg; two emails with photos unanswered.\nUrgency: high (needed before Friday, refund threatened)\nCustomer sentiment: frustrated\nNext action: Apologise today and ship an express replacement leg, confirming delivery before Friday.";
   if (!on.has("role")) notes.push("Works well, but a role can steer tone and priorities (e.g. a team lead focuses on escalation).");
   if (!on.has("constraints")) notes.push("Without constraints, models sometimes add details that aren't in the source. Constraints reduce that risk; they don't eliminate it.");
-  if (!on.has("example")) notes.push("An example helps the model match your exact style — most useful when the format is unusual.");
+  if (!on.has("example")) notes.push("An example helps the model match your exact style; most useful when the format is unusual.");
   if (notes.length === 0) notes.push("Structured, grounded and scannable. Each component removes a different kind of guesswork.");
   return { text, notes };
 }
@@ -63,7 +63,7 @@ export default function PromptPlayground() {
           <ul className="list-disc space-y-1 pl-5">
             {out.notes.map((n) => <li key={n}>{n}</li>)}
           </ul>
-          <p className="mt-2 text-xs text-slate-500">Simulated responses: pre-written to illustrate typical differences. Real model outputs vary between runs and models — always test prompts on the model you will actually use.</p>
+          <p className="mt-2 text-xs text-slate-500">Simulated responses: pre-written to illustrate typical differences. Real model outputs vary between runs and models. Always test prompts on the model you will actually use.</p>
         </>
       }
     >

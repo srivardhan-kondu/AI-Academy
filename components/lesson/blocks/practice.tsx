@@ -19,7 +19,7 @@ export function PracticeBlock({ content }: { content: BlockContent<"practice"> }
         <Markdown>{content.task}</Markdown>
       </div>
       <label className="mt-6 mb-2 block text-[0.9062rem] font-medium text-ink-2" htmlFor={`notes-${content.title}`}>
-        Your answer <span className="font-normal text-ink-3">— only kept in this browser tab</span>
+        Your answer <span className="font-normal text-ink-3">(only kept in this browser tab)</span>
       </label>
       <textarea
         id={`notes-${content.title}`}

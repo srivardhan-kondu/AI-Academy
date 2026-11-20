@@ -73,7 +73,7 @@ export default function RagPipeline() {
           <p className="mt-1">
             {found
               ? `✓ The answer (“${Q.answer}”) is in the retrieved context, so a well-instructed model can answer and cite it.`
-              : `✗ The answer (“${Q.answer}”) is not in the retrieved context. The model would have to say “I don't know” — or might hallucinate.`}{" "}
+              : `✗ The answer (“${Q.answer}”) is not in the retrieved context. The model would have to say “I don't know”, or might hallucinate.`}{" "}
             Small chunks are precise but can cut an answer away from its topic words; large chunks keep context but add noise and cost.
           </p>
           <p className="mt-1 text-xs text-slate-500">Simplified: relevance here is keyword overlap. Production RAG systems usually compare embeddings (semantic similarity), often combined with keyword search and reranking.</p>

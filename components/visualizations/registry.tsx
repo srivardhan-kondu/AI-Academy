@@ -12,7 +12,7 @@ const loading = () => (
   </div>
 );
 
-/** Lazy-loaded lab registry — each lab's code is only downloaded when used. */
+/** Lazy-loaded lab registry. Each lab's code is only downloaded when used. */
 const labRegistry: Record<LabKey, ComponentType<LabProps>> = {
   ai_ml_dl_explorer: dynamic(() => import("./labs/ai-ml-dl"), { loading }),
   neuron_playground: dynamic(() => import("./labs/neuron"), { loading }),

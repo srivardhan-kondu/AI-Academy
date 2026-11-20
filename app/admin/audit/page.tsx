@@ -16,7 +16,7 @@ export default async function AdminAudit() {
             {rows.map(({ a, email }) => (
               <tr key={a.id}>
                 <td className="whitespace-nowrap">{a.createdAt.toLocaleString()}</td>
-                <td>{email ?? "—"}</td>
+                <td>{email ?? "n/a"}</td>
                 <td>{a.action}</td>
                 <td>{a.entityType}</td>
                 <td className="max-w-xs truncate font-mono text-xs">{a.details ? JSON.stringify(a.details) : ""}</td>

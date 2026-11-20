@@ -74,7 +74,7 @@ export default function Tokenizer() {
       explanation={
         <>
           <p>
-            Language models don&apos;t read letters or whole words — they read <strong>tokens</strong>. Common words are usually one token; rare or long words are split into smaller pieces. A dot (·) marks a token that starts with a space.
+            Language models don&apos;t read letters or whole words. They read <strong>tokens</strong>. Common words are usually one token; rare or long words are split into smaller pieces. A dot (·) marks a token that starts with a space.
           </p>
           <p className="mt-1">
             {longest.n > 1 ? <>The word “{longest.word}” became {longest.n} tokens. </> : null}

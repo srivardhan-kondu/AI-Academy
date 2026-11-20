@@ -6,7 +6,7 @@
 - **P1:** Important shortly after launch.
 - **P2:** Later enhancement.
 
-## P0 — Core product
+## P0: Core product
 
 ### Public website
 - [ ] Homepage
@@ -65,7 +65,7 @@
 - [ ] 5 quizzes or assessment sets
 - [ ] References and review dates
 
-## P1 — Learning depth
+## P1: Learning depth
 
 - [ ] 10 interactive visualizations
 - [ ] Guided challenges
@@ -77,7 +77,7 @@
 - [ ] Analytics dashboard
 - [ ] Email notifications
 
-## P2 — Expansion
+## P2: Expansion
 
 - [ ] Isolated Python playground
 - [ ] Subscription payments

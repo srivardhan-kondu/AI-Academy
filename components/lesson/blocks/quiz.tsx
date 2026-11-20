@@ -50,7 +50,7 @@ export function QuizBlock({ quiz, previouslyPassed }: { quiz: ClientQuiz | undef
           {quiz.title}
         </h3>
         <p className="max-w-[62ch] font-serif text-[1.3125rem] leading-[1.6] text-ink-2">
-          {quiz.questions.length === 1 ? "One question" : `${quiz.questions.length} questions`}. Pass mark is {quiz.passThreshold}% — retry as often as you like; explanations appear after you check.
+          {quiz.questions.length === 1 ? "One question" : `${quiz.questions.length} questions`}. Pass mark is {quiz.passThreshold}%. Retry as often as you like; explanations appear after you check.
         </p>
         {previouslyPassed && (
           <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-good-weak px-3 py-1 text-[0.9062rem] font-medium text-good">
@@ -146,10 +146,10 @@ export function QuizBlock({ quiz, previouslyPassed }: { quiz: ClientQuiz | undef
         {result && (
           <div className={cn("rounded-[14px] border px-5 py-4", result.passed ? "border-good/30 bg-good-weak" : "border-amber/40 bg-amber-weak")}>
             <p className={cn("text-[1.1562rem] font-semibold", result.passed ? "text-good" : "text-amber-ink")}>
-              {result.passed ? "Passed" : "Not passed yet"} — {result.score}/{result.totalPoints} ({result.percent}%)
+              {result.passed ? "Passed" : "Not passed yet"}: {result.score}/{result.totalPoints} ({result.percent}%)
             </p>
             <p className="mt-1 font-serif text-[1.125rem] text-ink">
-              {result.passed ? "Nice work — you can now mark this lesson complete." : "Review the explanations above, revisit the lesson, and try again."}
+              {result.passed ? "Nice work! You can now mark this lesson complete." : "Review the explanations above, revisit the lesson, and try again."}
               {!result.saved && " Sign in to save your results."}
             </p>
           </div>

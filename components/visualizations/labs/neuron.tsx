@@ -43,7 +43,7 @@ export default function NeuronPlayground() {
           <p className="mt-1">
             The {s.act} activation turns z into the output <strong>{out.toFixed(3)}</strong>.{" "}
             {s.act === "step" && "Step outputs 1 when z ≥ 0, otherwise 0."}
-            {s.act === "sigmoid" && "Sigmoid squashes any number smoothly into the range 0–1."}
+            {s.act === "sigmoid" && "Sigmoid squashes any number smoothly into the range 0-1."}
             {s.act === "relu" && "ReLU passes positive values through and turns negatives into 0."}
           </p>
           <p className="mt-1 text-slate-600">Solid blue lines are positive weights; dashed orange lines are negative. Thicker lines mean larger weights.</p>

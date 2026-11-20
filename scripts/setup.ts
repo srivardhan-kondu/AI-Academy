@@ -25,7 +25,7 @@ async function main() {
 
   const existing = (await db.select({ n: count() }).from(schema.schools))[0]?.n ?? 0;
   if (existing > 0) {
-    console.log("• Content already present — skipping seed (use --reset to start over)");
+    console.log("• Content already present; skipping seed (use --reset to start over)");
   } else {
     const { seed } = await import("./seed");
     await seed(db);

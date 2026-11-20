@@ -26,7 +26,7 @@ export default function AboutPage() {
         <section>
           <h2 className="text-2xl font-bold">Why this exists</h2>
           <div className="prose-lesson mt-4">
-            <p>AI is changing how people study, work and build software — but most learning resources are either too shallow to be useful or too dense to be approachable.</p>
+            <p>AI is changing how people study, work and build software, but most learning resources are either too shallow to be useful or too dense to be approachable.</p>
             <p>This platform combines structured education, visual learning, practical coding and career guidance so that students, developers and working professionals can genuinely understand AI and build with it.</p>
             <p>Every lesson is reviewed for technical accuracy, dated, and referenced. Fast-moving topics such as model APIs and pricing are re-verified on a schedule.</p>
           </div>

@@ -56,7 +56,7 @@ export async function markLessonComplete(lessonId: string): Promise<ActionState>
   if (!res.ok) return { message: res.reason };
   revalidatePath("/dashboard");
   revalidatePath(`/academy/lessons/${ctx.lesson.lesson.slug}`);
-  return { ok: true, message: "Lesson complete — nice work!" };
+  return { ok: true, message: "Lesson complete. Nice work!" };
 }
 
 const answersSchema = z.record(z.string().max(64), z.array(z.number().int().min(0).max(20)).max(20));

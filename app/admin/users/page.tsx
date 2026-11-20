@@ -20,7 +20,7 @@ export default async function AdminUsers() {
           <tbody>
             {rows.map(({ u, name }) => (
               <tr key={u.id}>
-                <td><p className="font-medium">{name ?? "—"}</p><p className="text-xs text-slate-500">{u.email}</p></td>
+                <td><p className="font-medium">{name ?? "n/a"}</p><p className="text-xs text-slate-500">{u.email}</p></td>
                 <td>{formatDate(u.createdAt)}</td>
                 <td>
                   <form action={setUserRole} className="flex gap-1">

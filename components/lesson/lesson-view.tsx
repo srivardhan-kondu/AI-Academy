@@ -83,7 +83,7 @@ export function LessonHeader({ data, diagram, children }: { data: LessonData; di
             <figure className="hidden lg:block">
               <NestedDiagram nodes={diagram.nodes} label={diagram.description} size="sm" />
               <figcaption className="mt-3 text-[0.875rem] leading-snug text-ink-3">
-                {NUMBER_WORDS[diagram.nodes.length] ?? diagram.nodes.length} layers, one inside the next — the map you&apos;ll build in this lesson.
+                {NUMBER_WORDS[diagram.nodes.length] ?? diagram.nodes.length} layers, one inside the next: the map you&apos;ll build in this lesson.
               </figcaption>
             </figure>
           )}
@@ -115,7 +115,7 @@ function ContinueLink({ to }: { to: { id: string; title: string } }) {
   return (
     <div className="mt-12">
       <a href={`#${to.id}`} className="group inline-flex items-center gap-2 border-t border-line pt-4 pr-6 text-[1.0312rem] font-semibold text-brand hover:text-brand-700">
-        Continue — {to.title}
+        Continue: {to.title}
         <ArrowRight {...ICON} className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       </a>
     </div>
@@ -161,7 +161,7 @@ function Objectives({ data }: { data: LessonData }) {
           </p>
         ) : (
           <p>
-            <span className="font-semibold text-ink">Before you start:</span> nothing. No prior lessons needed — this is a good starting point.
+            <span className="font-semibold text-ink">Before you start:</span> nothing. No prior lessons needed. This is a good starting point.
           </p>
         )}
       </div>
@@ -233,7 +233,7 @@ export function LessonView({
               href={`#block-${progress.lastBlockId}`}
               className="mb-12 flex items-center justify-between gap-4 rounded-[12px] border border-brand-2/30 bg-brand-weak px-5 py-3.5 text-[1rem] font-medium text-brand"
             >
-              Welcome back — you were {progress.progressPercent}% through this lesson.
+              Welcome back. You were {progress.progressPercent}% through this lesson.
               <span className="flex shrink-0 items-center gap-1 font-semibold">
                 Resume <ArrowRight {...ICON} className="h-4 w-4" />
               </span>

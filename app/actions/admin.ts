@@ -416,7 +416,7 @@ const questionSchema = z
   .object({
     questionType: z.enum(["single", "multiple", "true_false"]),
     prompt: z.string().trim().min(1).max(1000),
-    explanation: z.string().trim().min(1, "Explain the answer — learners see this after submitting").max(2000),
+    explanation: z.string().trim().min(1, "Explain the answer; learners see this after submitting").max(2000),
     points: z.coerce.number().int().min(1).max(10),
   });
 

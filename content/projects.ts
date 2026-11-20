@@ -1,12 +1,12 @@
 export const PROJECTS = [
   {
     slug: "ai-assisted-study-workflow", order: 1, title: "Build an AI-Assisted Study Workflow", difficulty: "beginner", hours: 3, tier: "free",
-    description: "Design a repeatable workflow that uses an AI assistant to help you learn — while verifying what it tells you.",
+    description: "Design a repeatable workflow that uses an AI assistant to help you learn, while verifying what it tells you.",
     prerequisites: ["AI vs ML vs Deep Learning", "Limitations of AI: Hallucinations, Bias and Privacy", "Anatomy of an Effective Prompt"],
-    outcomes: ["A written workflow with 3–5 reusable prompts", "Evidence of verifying AI output against reliable sources", "A short reflection on where AI helped and where it didn't"],
+    outcomes: ["A written workflow with 3-5 reusable prompts", "Evidence of verifying AI output against reliable sources", "A short reflection on where AI helped and where it didn't"],
     instructions: `## Goal
 
-Create a study workflow for one real course or topic that uses AI to **explain, quiz and plan** — with a built-in verification step.
+Create a study workflow for one real course or topic that uses AI to **explain, quiz and plan**, with a built-in verification step.
 
 ## Milestones
 
@@ -15,7 +15,7 @@ Create a study workflow for one real course or topic that uses AI to **explain, 
 3. **Write a quiz prompt** that generates 5 questions *with answers and explanations* from the same excerpt. Answer them yourself before reading the answers.
 4. **Verify**: pick 3 claims from the AI's output and check them against your source. Record any errors.
 5. **Write a planning prompt** that turns your remaining syllabus into a two-week revision plan.
-6. **Reflect** (150–300 words): what was useful, what was wrong, and what you will change.
+6. **Reflect** (150-300 words): what was useful, what was wrong, and what you will change.
 
 ## Definition of done
 
@@ -37,14 +37,14 @@ Answer three questions about a real dataset using only Python and NumPy.
 
 ## Suggested data
 
-Any small public CSV — for example a city's open-data portal, a sports statistics table, or a weather history file. Keep it under 50 MB.
+Any small public CSV, for example a city's open-data portal, a sports statistics table, or a weather history file. Keep it under 50 MB.
 
 ## Milestones
 
 1. Load the numeric columns with \`np.genfromtxt\` or \`np.loadtxt\` (handle missing values).
 2. Print the shape, and the mean/min/max of each column.
 3. Use **boolean masks** to compare two groups (e.g. weekdays vs weekends).
-4. Normalise at least one column with min–max scaling.
+4. Normalise at least one column with min-max scaling.
 5. Write three findings, each backed by a number you computed.
 
 ## Definition of done
@@ -74,7 +74,7 @@ Train, evaluate and document a model the way a professional would.
 ## Definition of done
 
 - Reproducible notebook (fixed random seeds).
-- Model beats the baseline — or you explain why it doesn't.
+- Model beats the baseline, or you explain why it doesn't.
 - A model card in the README.`,
   },
   {
@@ -90,7 +90,7 @@ Turn ad-hoc prompting into a small, tested toolkit.
 
 1. **Pick a workflow** you actually do (e.g. summarising meeting notes, drafting replies, extracting data from invoices).
 2. **Write 5 prompt templates** with context placeholders, a clear task, an output format and constraints.
-3. **Create test inputs**: at least 5 realistic, varied examples per prompt — include one tricky edge case.
+3. **Create test inputs**: at least 5 realistic, varied examples per prompt, including one tricky edge case.
 4. **Define success** for each prompt (e.g. "all four fields present", "under 100 words", "no invented facts").
 5. **Run, score and iterate.** Record each version's pass rate.
 
@@ -110,7 +110,7 @@ Build a question-answering assistant over a document set you are allowed to use,
 
 ## Milestones
 
-1. **Corpus:** choose 10–50 documents (your own notes, public policy documents, open-licence manuals).
+1. **Corpus:** choose 10-50 documents (your own notes, public policy documents, open-licence manuals).
 2. **Ingest:** extract text, chunk by headings/paragraphs with modest overlap, and store chunk metadata (source, section).
 3. **Index:** embed chunks with an embedding model and store vectors (a simple NumPy array is fine to start; a vector database later).
 4. **Retrieve:** embed the question, return top-k chunks, and *log them* so you can inspect failures.

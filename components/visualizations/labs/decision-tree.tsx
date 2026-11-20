@@ -78,7 +78,7 @@ export default function DecisionTree() {
   return (
     <LabShell
       onReset={() => setS(DEFAULT)}
-      challenge={{ text: "Build a tree (at most 2 levels) that classifies every student correctly — 100% accuracy.", done: acc === 1 }}
+      challenge={{ text: "Build a tree (at most 2 levels) that classifies every student correctly: 100% accuracy.", done: acc === 1 }}
       explanation={
         <>
           <p>
@@ -86,7 +86,7 @@ export default function DecisionTree() {
           </p>
           <p className="mt-1">
             Accuracy is {(acc * 100).toFixed(0)}% ({correct}/{DATA.length}). Gini impurity measures how mixed a leaf is: 0 means every point in it has the same label.{" "}
-            {acc < 1 && "Look for a leaf with high impurity — that's where another question would help."}
+            {acc < 1 && "Look for a leaf with high impurity. That's where another question would help."}
           </p>
         </>
       }
@@ -139,7 +139,7 @@ export default function DecisionTree() {
               <tr key={i}>
                 <td>{l.name}</td>
                 <td>{l.pass} / {l.fail}</td>
-                <td>{l.n ? (l.pred ? "Pass" : "Fail") : "—"}</td>
+                <td>{l.n ? (l.pred ? "Pass" : "Fail") : "n/a"}</td>
                 <td>{l.gini.toFixed(2)}</td>
               </tr>
             ))}

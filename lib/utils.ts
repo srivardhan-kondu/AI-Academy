@@ -20,7 +20,7 @@ export function formatMinutes(min: number): string {
 }
 
 export function formatDate(d: Date | null | undefined): string {
-  if (!d) return "—";
+  if (!d) return "n/a";
   return new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(d);
 }
 

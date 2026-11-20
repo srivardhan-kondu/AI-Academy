@@ -40,7 +40,7 @@ export default async function SearchPage({ searchParams }: PageProps<"/search">)
           ))}
         </ul>
         {q.length >= 2 && results.length === 0 && (
-          <p className="rounded-xl bg-slate-50 p-5 text-slate-700">Nothing found yet. We log empty searches to decide what to write next — try a broader term, or <Link href="/academy" className="font-semibold text-brand-700 underline">browse the Academy</Link>.</p>
+          <p className="rounded-xl bg-slate-50 p-5 text-slate-700">Nothing found yet. We log empty searches to decide what to write next. Try a broader term, or <Link href="/academy" className="font-semibold text-brand-700 underline">browse the Academy</Link>.</p>
         )}
       </div>
     </>

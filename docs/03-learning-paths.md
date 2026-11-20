@@ -2,7 +2,7 @@
 
 Learning paths connect schools into goal-oriented journeys. Students should be able to follow a path or explore lessons independently.
 
-## Path 1 — AI for Absolute Beginners
+## Path 1: AI for Absolute Beginners
 
 **Audience:** Students and non-technical learners.
 
@@ -18,7 +18,7 @@ Sequence:
 
 **Capstone:** Create a useful AI-assisted study or productivity workflow.
 
-## Path 2 — Python for AI
+## Path 2: Python for AI
 
 **Audience:** Learners who want a programming foundation.
 
@@ -37,7 +37,7 @@ Sequence:
 
 **Capstone:** Analyze a dataset and build a small Python application.
 
-## Path 3 — Machine Learning Engineer
+## Path 3: Machine Learning Engineer
 
 **Audience:** Learners targeting ML engineering.
 
@@ -56,7 +56,7 @@ Sequence:
 
 **Capstone:** Train, evaluate and deploy a documented prediction model.
 
-## Path 4 — Data Scientist
+## Path 4: Data Scientist
 
 Sequence:
 1. Python Programming
@@ -72,7 +72,7 @@ Sequence:
 
 **Capstone:** Complete an end-to-end data science case study.
 
-## Path 5 — Generative AI Developer
+## Path 5: Generative AI Developer
 
 Sequence:
 1. Python foundations
@@ -88,7 +88,7 @@ Sequence:
 
 **Capstone:** Build and deploy a grounded AI knowledge assistant.
 
-## Path 6 — Prompt Engineering Specialist
+## Path 6: Prompt Engineering Specialist
 
 Sequence:
 1. Generative AI fundamentals
@@ -104,7 +104,7 @@ Sequence:
 
 **Capstone:** Create a tested prompt library for a real workflow.
 
-## Path 7 — AI Agent Developer
+## Path 7: AI Agent Developer
 
 Sequence:
 1. Python foundations
@@ -120,7 +120,7 @@ Sequence:
 
 **Capstone:** Build an agent that researches a task, uses approved tools and produces a reviewed result.
 
-## Path 8 — RAG Application Developer
+## Path 8: RAG Application Developer
 
 Sequence:
 1. Python foundations
@@ -136,7 +136,7 @@ Sequence:
 
 **Capstone:** Build a document question-answering application with source references.
 
-## Path 9 — Computer Vision Developer
+## Path 9: Computer Vision Developer
 
 Sequence:
 1. Python foundations
@@ -152,7 +152,7 @@ Sequence:
 
 **Capstone:** Build an image or video analysis application using an appropriate dataset.
 
-## Path 10 — AI Automation Specialist
+## Path 10: AI Automation Specialist
 
 Sequence:
 1. AI fundamentals

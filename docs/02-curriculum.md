@@ -4,10 +4,10 @@
 
 Organize the curriculum into four broad levels. Learners can follow a recommended path or explore individual schools independently.
 
-- **Level 1 — Foundations**
-- **Level 2 — Core AI Engineering**
-- **Level 3 — Modern AI Engineering**
-- **Level 4 — Production and Specialization**
+- **Level 1: Foundations**
+- **Level 2: Core AI Engineering**
+- **Level 3: Modern AI Engineering**
+- **Level 4: Production and Specialization**
 
 A school contains modules. A module contains ordered lessons. Lessons may include explanations, visualizations, experiments, code, quizzes and projects.
 
@@ -15,7 +15,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 # Level 1: Foundations
 
-## School 01 — AI Fundamentals
+## School 01: AI Fundamentals
 
 1. Introduction to Artificial Intelligence
 2. History and evolution of AI
@@ -29,7 +29,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** AI/ML/DL comparison map; classify everyday applications; AI capability and limitation scenarios.
 
-## School 02 — Mathematics for AI
+## School 02: Mathematics for AI
 
 1. Mathematical foundations and notation
 2. Algebra essentials
@@ -45,7 +45,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** vector playground; matrix multiplication visualizer; probability simulator; gradient descent explorer.
 
-## School 03 — Python Programming
+## School 03: Python Programming
 
 1. Python setup and first program
 2. Variables and data types
@@ -65,7 +65,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** browser-based coding exercises; debugging challenges; data manipulation playground.
 
-## School 04 — Data Science and Analytics
+## School 04: Data Science and Analytics
 
 1. Introduction to data science
 2. Data types and data sources
@@ -86,7 +86,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 # Level 2: Core AI Engineering
 
-## School 05 — Machine Learning
+## School 05: Machine Learning
 
 1. What is machine learning?
 2. The machine learning workflow
@@ -111,7 +111,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** regression fitting playground; decision tree explorer; K-means clustering simulator; confusion matrix explorer.
 
-## School 06 — Deep Learning
+## School 06: Deep Learning
 
 1. Deep learning fundamentals
 2. Biological and artificial neurons
@@ -131,7 +131,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** build a neuron; adjust network layers; visualize forward propagation; explore activation functions.
 
-## School 07 — Natural Language Processing
+## School 07: Natural Language Processing
 
 1. Introduction to NLP
 2. Text normalization and preprocessing
@@ -150,7 +150,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** tokenizer explorer; compare text representations; sentiment analysis playground.
 
-## School 12 — Computer Vision
+## School 12: Computer Vision
 
 1. Computer vision fundamentals
 2. Pixels, color spaces and image formats
@@ -169,7 +169,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** image filter playground; draw bounding boxes; compare image classification and object detection; segmentation explorer.
 
-## School 13 — Speech and Audio AI
+## School 13: Speech and Audio AI
 
 1. Audio fundamentals
 2. Speech recognition
@@ -189,7 +189,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 # Level 3: Modern AI Engineering
 
-## School 08 — Generative AI and Large Language Models
+## School 08: Generative AI and Large Language Models
 
 1. Generative AI fundamentals
 2. Generative AI vs traditional AI
@@ -211,7 +211,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** token counter; attention visualization; context-window simulator; temperature and sampling playground.
 
-## School 09 — Prompt Engineering
+## School 09: Prompt Engineering
 
 1. Prompt engineering fundamentals
 2. Anatomy of an effective prompt
@@ -228,7 +228,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** prompt comparison playground; structured output challenge; prompt debugging exercises.
 
-## School 10 — AI Agents and Agentic AI
+## School 10: AI Agents and Agentic AI
 
 1. What is an AI agent?
 2. Assistants vs agents
@@ -246,7 +246,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** agent workflow simulator; tool-calling visualizer; multi-agent collaboration demo.
 
-## School 11 — Retrieval-Augmented Generation
+## School 11: Retrieval-Augmented Generation
 
 1. What is RAG?
 2. Why RAG is useful
@@ -266,7 +266,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 **Interactive ideas:** chunking explorer; embedding-space visualizer; retrieval pipeline simulator.
 
-## School 14 — AI Development Frameworks and APIs
+## School 14: AI Development Frameworks and APIs
 
 1. AI API fundamentals
 2. API keys and secure configuration
@@ -290,7 +290,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 
 # Level 4: Production and Specialization
 
-## School 15 — MLOps and AI Infrastructure
+## School 15: MLOps and AI Infrastructure
 
 1. MLOps fundamentals
 2. Model deployment concepts
@@ -308,7 +308,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 14. Production scaling
 15. AI infrastructure costs
 
-## School 16 — Responsible AI and Security
+## School 16: Responsible AI and Security
 
 1. AI ethics
 2. Responsible AI principles
@@ -323,7 +323,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 11. AI regulation concepts
 12. Human oversight
 
-## School 17 — AI Research and Emerging Technologies
+## School 17: AI Research and Emerging Technologies
 
 1. Foundation models
 2. Small Language Models
@@ -338,7 +338,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 11. Evaluating research claims
 12. Emerging AI architectures
 
-## School 18 — AI for Everyday Life and Business
+## School 18: AI for Everyday Life and Business
 
 1. AI for students
 2. AI for educators
@@ -353,7 +353,7 @@ A school contains modules. A module contains ordered lessons. Lessons may includ
 11. AI productivity workflows
 12. Responsible workplace adoption
 
-## School 19 — AI Careers
+## School 19: AI Careers
 
 1. AI career landscape
 2. AI engineer roadmap

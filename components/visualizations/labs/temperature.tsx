@@ -50,7 +50,7 @@ export default function Temperature() {
   return (
     <LabShell
       onReset={() => { setT(1); setK(CANDIDATES.length); setSamples([]); }}
-      challenge={{ text: "Find settings where 20 samples in a row all give the same word — then find settings that produce at least 5 different words.", done: distinct >= 5 }}
+      challenge={{ text: "Find settings where 20 samples in a row all give the same word, then find settings that produce at least 5 different words.", done: distinct >= 5 }}
       explanation={
         <>
           <p>
@@ -60,11 +60,11 @@ export default function Temperature() {
             {T < 0.4
               ? "Low temperature sharpens the distribution: the top token almost always wins, so output is focused and repetitive."
               : T > 1.4
-              ? "High temperature flattens the distribution: unlikely tokens (even “banana”) get real chances, so output becomes varied — and sometimes nonsensical."
+              ? "High temperature flattens the distribution: unlikely tokens (even “banana”) get real chances, so output becomes varied, and sometimes nonsensical."
               : "Around 1.0 the model's original probabilities are used."}{" "}
             {k < CANDIDATES.length && `Top-k = ${k} removes everything except the ${k} most likely tokens.`}
           </p>
-          <p className="mt-1 text-xs text-slate-500">Scores are illustrative. Sampling is random, so pressing “Sample” again gives different results — just like a real model with temperature above 0.</p>
+          <p className="mt-1 text-xs text-slate-500">Scores are illustrative. Sampling is random, so pressing “Sample” again gives different results, just like a real model with temperature above 0.</p>
         </>
       }
     >

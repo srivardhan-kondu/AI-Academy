@@ -93,14 +93,14 @@ export default function KMeans() {
   return (
     <LabShell
       onReset={() => { setK(3); setSeed(3); reset(3, 3); }}
-      challenge={{ text: `With k = 3, reach convergence with inertia below ${(target * 1.05).toFixed(0)}. (Tip: bad starting centroids can trap you — try new ones or drag them.)`, done: k === 3 && stable && (curInertia ?? Infinity) < target * 1.05 }}
+      challenge={{ text: `With k = 3, reach convergence with inertia below ${(target * 1.05).toFixed(0)}. (Tip: bad starting centroids can trap you; try new ones or drag them.)`, done: k === 3 && stable && (curInertia ?? Infinity) < target * 1.05 }}
       explanation={
         <>
           <p>{lastMsg}</p>
           <p className="mt-1">
-            K-means repeats two steps: <strong>assign</strong> each point to the nearest centroid, then <strong>update</strong> each centroid to the mean of its points. Inertia (total squared distance from points to their centroid) can only go down — but it can get stuck in a poor solution depending on where centroids start.
+            K-means repeats two steps: <strong>assign</strong> each point to the nearest centroid, then <strong>update</strong> each centroid to the mean of its points. Inertia (total squared distance from points to their centroid) can only go down, but it can get stuck in a poor solution depending on where centroids start.
           </p>
-          {stable && <p className="mt-1 font-medium">Converged — another iteration would not change anything.</p>}
+          {stable && <p className="mt-1 font-medium">Converged: another iteration would not change anything.</p>}
         </>
       }
     >
@@ -151,7 +151,7 @@ export default function KMeans() {
           </div>
           <div className="grid grid-cols-2 gap-2">
             <Stat label="Iterations" value={iter} />
-            <Stat label="Inertia" value={curInertia === null ? "—" : curInertia.toFixed(1)} hint="lower = tighter clusters" />
+            <Stat label="Inertia" value={curInertia === null ? "n/a" : curInertia.toFixed(1)} hint="lower = tighter clusters" />
           </div>
         </div>
       </div>

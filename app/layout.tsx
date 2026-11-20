@@ -12,7 +12,7 @@ const mono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], 
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
-  title: { default: `${site.name} — ${site.tagline}`, template: `%s · ${site.name}` },
+  title: { default: `${site.name}: ${site.tagline}`, template: `%s · ${site.name}` },
   description: site.description,
   openGraph: { siteName: site.name, type: "website" },
 };

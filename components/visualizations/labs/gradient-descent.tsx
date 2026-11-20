@@ -54,12 +54,12 @@ export default function GradientDescent({ config }: LabProps) {
   const done = fn === "quadratic" && !diverged && Math.abs(x) < 0.01 && steps <= 10;
 
   let behaviour = "Press “Take 1 step” to move downhill.";
-  if (diverged) behaviour = "The steps grew larger and larger and the point flew off — the learning rate is too high, so each update overshoots the minimum.";
+  if (diverged) behaviour = "The steps grew larger and larger and the point flew off. The learning rate is too high, so each update overshoots the minimum.";
   else if (steps > 1) {
     const signs = path.slice(-4).map((v) => Math.sign(v));
     const oscillating = fn === "quadratic" && signs.some((v, i) => i > 0 && v !== signs[i - 1]);
     if (oscillating) behaviour = "The point is bouncing from one side of the bowl to the other: the learning rate is large enough to overshoot, but still converging.";
-    else if (Math.abs(F.df(x)) < 0.01) behaviour = "The slope is almost zero, so the steps have become tiny — we have reached a minimum." + (fn === "bumpy" ? " Is it the lowest one? Try a different start." : "");
+    else if (Math.abs(F.df(x)) < 0.01) behaviour = "The slope is almost zero, so the steps have become tiny. We have reached a minimum." + (fn === "bumpy" ? " Is it the lowest one? Try a different start." : "");
     else behaviour = "Each step moves opposite to the slope. Steps shrink as the slope flattens near the bottom.";
   }
 

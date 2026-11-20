@@ -66,7 +66,7 @@ export default async function EditPath({ params }: PageProps<"/admin/paths/[id]"
         <div className="min-w-64 flex-1">
           <label htmlFor="moduleId" className="label">Add a module</label>
           <select id="moduleId" name="moduleId" className="input" required>
-            {available.map((m) => <option key={m.id} value={m.id}>{m.school} — {m.title}</option>)}
+            {available.map((m) => <option key={m.id} value={m.id}>{m.school} / {m.title}</option>)}
           </select>
         </div>
         <button className="btn-primary" type="submit">Add to path</button>

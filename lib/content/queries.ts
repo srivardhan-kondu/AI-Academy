@@ -208,7 +208,7 @@ export async function loadBlocks(lessonId: string): Promise<RenderableBlock[]> {
 }
 
 /**
- * Load a full lesson. With `preview: true` (staff only — the caller must check),
+ * Load a full lesson. With `preview: true` (staff only; the caller must check),
  * draft and scheduled lessons are returned too.
  */
 export async function getLesson(by: { slug: string } | { id: string }, opts: { preview?: boolean } = {}) {

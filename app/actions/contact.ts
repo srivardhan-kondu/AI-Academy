@@ -21,5 +21,5 @@ export async function sendContact(_: ActionState, formData: FormData): Promise<A
   const { website: _hp, ...data } = parsed.data;
   void _hp;
   await db.insert(contactMessages).values(data);
-  return { ok: true, message: "Thanks — your message has been received." };
+  return { ok: true, message: "Thanks! Your message has been received." };
 }

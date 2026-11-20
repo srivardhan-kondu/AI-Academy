@@ -59,7 +59,7 @@ export function LessonProgressBar({ sections, lessonTitle, moduleTitle }: { sect
       <div className="container-page flex h-[3.5625rem] items-center gap-6">
         <p className="min-w-0 flex-1 truncate text-[0.9062rem] text-ink-2">
           <span className="font-medium text-ink">{lessonTitle}</span>
-          <span className="hidden sm:inline"> — {moduleTitle}</span>
+          <span className="hidden sm:inline"> · {moduleTitle}</span>
         </p>
         <div className="flex shrink-0 items-center gap-3">
           <span className="text-[0.9062rem] tabular-nums text-ink-2">

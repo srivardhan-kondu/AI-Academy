@@ -38,7 +38,7 @@ export default async function PathPage({ params }: PageProps<"/academy/paths/[sl
             <Link href={`/signup?next=/academy/paths/${path.slug}`} className="btn-primary">Sign up free to enrol</Link>
           ) : enrolled ? (
             <div className="max-w-md space-y-2">
-              <p className="flex items-center gap-2 font-medium text-emerald-700"><CheckCircle2 aria-hidden className="h-4 w-4" /> You&apos;re enrolled — {prog?.completed}/{prog?.total} lessons done</p>
+              <p className="flex items-center gap-2 font-medium text-emerald-700"><CheckCircle2 aria-hidden className="h-4 w-4" /> You&apos;re enrolled: {prog?.completed}/{prog?.total} lessons done</p>
               <ProgressBar percent={prog?.percent ?? 0} label="Path progress" />
               {prog?.nextLesson && <Link href={`/academy/lessons/${prog.nextLesson.slug}`} className="btn-primary mt-2">Continue: {prog.nextLesson.title}</Link>}
             </div>

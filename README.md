@@ -1,4 +1,4 @@
-# Srivardhan AI — Interactive AI Learning Platform
+# Srivardhan AI: Interactive AI Learning Platform
 
 **Learn difficult things the easy way.** This is the first release of the platform described in the blueprint documents in [`docs/`](docs/) (`01-…` to `11-…`).
 

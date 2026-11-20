@@ -6,7 +6,7 @@ Build the reusable platform infrastructure before trying to populate every curri
 
 A strong first lesson experience is more valuable than hundreds of shallow pages.
 
-## Phase 0 — Product definition
+## Phase 0: Product definition
 
 Deliverables:
 - Confirm brand and positioning
@@ -22,7 +22,7 @@ Exit criteria:
 - Approved first-release backlog
 - Technical architecture decision record
 
-## Phase 1 — Public website and Academy foundation
+## Phase 1: Public website and Academy foundation
 
 Build:
 - Homepage
@@ -39,7 +39,7 @@ Exit criteria:
 - Pages are responsive and accessible.
 - Content is data-driven.
 
-## Phase 2 — Content management
+## Phase 2: Content management
 
 Build:
 - Admin authentication and roles
@@ -55,7 +55,7 @@ Build:
 Exit criteria:
 - An administrator can publish a lesson without a code change.
 
-## Phase 3 — Student experience
+## Phase 3: Student experience
 
 Build:
 - Authentication
@@ -70,7 +70,7 @@ Build:
 Exit criteria:
 - A student can sign in, start a path, complete lessons and see progress.
 
-## Phase 4 — Interactive engine
+## Phase 4: Interactive engine
 
 Build:
 - Block registry
@@ -98,7 +98,7 @@ Exit criteria:
 - Admins can configure supported labs.
 - Fallback explanations are available.
 
-## Phase 5 — Coding and projects
+## Phase 5: Coding and projects
 
 Build:
 - Isolated Python execution
@@ -112,7 +112,7 @@ Exit criteria:
 - Code execution is isolated, rate-limited and monitored.
 - Learners can complete a guided coding exercise safely.
 
-## Phase 6 — Freemium and payments
+## Phase 6: Freemium and payments
 
 Build:
 - Free and premium entitlements
@@ -126,7 +126,7 @@ Exit criteria:
 - Premium access cannot be granted by changing client-side state.
 - Payment state and entitlements remain consistent.
 
-## Phase 7 — Launch and expansion
+## Phase 7: Launch and expansion
 
 Build:
 - Initial content library
@@ -146,7 +146,7 @@ Launch targets:
 - Admin CMS
 - Free and premium permissions
 
-## Phase 8 — Ongoing expansion
+## Phase 8: Ongoing expansion
 
 Potential additions:
 - Remaining learning schools

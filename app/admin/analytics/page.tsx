@@ -34,7 +34,7 @@ export default async function AdminAnalytics() {
   const misses = (await db.select({ q: searchMisses.query, n: count() }).from(searchMisses).groupBy(searchMisses.query).orderBy(desc(count())).limit(20));
 
   return (
-    <AdminPage title="Learning analytics" description="Use these numbers to improve explanations — low completion or low quiz scores point at lessons that need work. Interaction counts alone are not proof of learning.">
+    <AdminPage title="Learning analytics" description="Use these numbers to improve explanations. Low completion or low quiz scores point at lessons that need work. Interaction counts alone are not proof of learning.">
       <h2 className="mb-2 text-lg font-semibold">Lessons</h2>
       <div className="card overflow-x-auto">
         <table className="table">
@@ -45,8 +45,8 @@ export default async function AdminAnalytics() {
                 <td>{r.title}</td>
                 <td>{r.starts}</td>
                 <td>{r.completions ?? 0}</td>
-                <td>{r.starts ? `${Math.round(((r.completions ?? 0) / r.starts) * 100)}%` : "—"}</td>
-                <td>{r.avgProgress != null ? `${Math.round(r.avgProgress)}%` : "—"}</td>
+                <td>{r.starts ? `${Math.round(((r.completions ?? 0) / r.starts) * 100)}%` : "n/a"}</td>
+                <td>{r.avgProgress != null ? `${Math.round(r.avgProgress)}%` : "n/a"}</td>
               </tr>
             ))}
           </tbody>
@@ -62,8 +62,8 @@ export default async function AdminAnalytics() {
                 <td>{r.title}</td>
                 <td>{r.attempts}</td>
                 <td>{r.learners}</td>
-                <td>{r.attempts ? `${Math.round(r.passRate)}%` : "—"}</td>
-                <td>{r.attempts ? `${Math.round(r.avgScore)}%` : "—"}</td>
+                <td>{r.attempts ? `${Math.round(r.passRate)}%` : "n/a"}</td>
+                <td>{r.attempts ? `${Math.round(r.avgScore)}%` : "n/a"}</td>
               </tr>
             ))}
           </tbody>

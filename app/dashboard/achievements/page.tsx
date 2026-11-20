@@ -15,7 +15,7 @@ export default async function AchievementsPage() {
   return (
     <section>
       <h2 className="text-xl font-bold">Learning milestones</h2>
-      <p className="mt-1 text-sm text-slate-600">Milestones mark real learning progress — completing lessons and passing knowledge checks — not time spent clicking.</p>
+      <p className="mt-1 text-sm text-slate-600">Milestones mark real learning progress, completing lessons and passing knowledge checks, not time spent clicking.</p>
       <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {all.map((a) => {
           const at = mine.get(a.id);

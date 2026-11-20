@@ -45,7 +45,7 @@ export default async function AccountPage() {
       <section className="card p-6">
         <h2 className="text-lg font-semibold">{hasPassword ? "Change password" : "Set a password"}</h2>
         <p className="mt-1 text-sm text-slate-600">
-          {googleLinked ? "Your account is linked to Google — you can always use “Continue with Google”." : "You sign in with your email and password."}
+          {googleLinked ? "Your account is linked to Google. You can always use “Continue with Google”." : "You sign in with your email and password."}
           {!hasPassword && " Add a password if you also want to sign in with your email."}
         </p>
         <ActionForm action={changePassword} className="mt-4 space-y-4">
