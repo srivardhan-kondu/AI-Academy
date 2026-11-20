@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-900: #312e81;
+  --color-ink: #0f172a;
+  --color-muted: #475569;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fbfbfd;
+  color: var(--color-ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Visible focus for keyboard users everywhere. */
+:focus-visible {
+  outline: 3px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+  }
+  .btn-secondary {
+    @apply btn border border-slate-300 bg-white text-slate-800 hover:bg-slate-50;
+  }
+  .btn-ghost {
+    @apply btn text-slate-700 hover:bg-slate-100;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-sm {
+    @apply px-2.5 py-1 text-xs;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+  .input {
+    @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-slate-700;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-wider text-brand-600;
+  }
+  .table {
+    @apply w-full text-left text-sm;
+  }
+  .table th {
+    @apply border-b border-slate-200 px-3 py-2 font-semibold text-slate-600;
+  }
+  .table td {
+    @apply border-b border-slate-100 px-3 py-2 align-top;
+  }
+}
+
+/* Long-form lesson typography */
+.prose-lesson {
+  @apply text-[1.0625rem] leading-relaxed text-slate-800;
+}
+.prose-lesson > * + * {
+  @apply mt-4;
+}
+.prose-lesson h2 {
+  @apply mt-8 text-2xl font-bold text-slate-900;
+}
+.prose-lesson h3 {
+  @apply mt-6 text-xl font-semibold text-slate-900;
+}
+.prose-lesson a {
+  @apply font-medium text-brand-700 underline underline-offset-2;
+}
+.prose-lesson ul {
+  @apply list-disc space-y-1 pl-6;
+}
+.prose-lesson ol {
+  @apply list-decimal space-y-1 pl-6;
+}
+.prose-lesson code {
+  @apply rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[0.9em] text-slate-800;
+}
+.prose-lesson pre code {
+  @apply bg-transparent p-0;
+}
+.prose-lesson pre {
+  @apply overflow-x-auto rounded-xl bg-slate-900 p-4 text-sm text-slate-100;
+}
+.prose-lesson blockquote {
+  @apply border-l-4 border-brand-200 pl-4 italic text-slate-600;
+}
+.prose-lesson table {
+  @apply w-full border-collapse text-sm;
+}
+.prose-lesson th,
+.prose-lesson td {
+  @apply border border-slate-200 px-3 py-2 text-left;
+}
+.prose-lesson strong {
+  @apply font-semibold text-slate-900;
+}
+
+input[type="range"] {
+  accent-color: var(--color-brand-600);
 }
