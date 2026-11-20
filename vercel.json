@@ -1,4 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "regions": ["sin1"]
+  "regions": ["sin1"],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.srivardhan.net" }],
+      "destination": "https://srivardhan.net/$1",
+      "permanent": true
+    }
+  ]
 }
