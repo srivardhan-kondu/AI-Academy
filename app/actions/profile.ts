@@ -46,9 +46,11 @@ export async function changePassword(_: ActionState, formData: FormData): Promis
   const next = String(formData.get("next") ?? "");
   if (next.length < 10) return { message: "New password must be at least 10 characters." };
   const row = (await db.select().from(users).where(eq(users.id, user.id)))[0];
-  if (!row || !(await verifyPassword(current, row.passwordHash))) return { message: "Current password is incorrect." };
+  if (!row) return { message: "Account not found." };
+  // Google-only accounts have no password yet; their active session is the proof of identity.
+  if (row.passwordHash && !(await verifyPassword(current, row.passwordHash))) return { message: "Current password is incorrect." };
   await db.update(users).set({ passwordHash: await hashPassword(next) }).where(eq(users.id, user.id));
-  return { ok: true, message: "Password updated." };
+  return { ok: true, message: row.passwordHash ? "Password updated." : "Password set. You can now also sign in with your email and password." };
 }
 
 /** Account and data deletion (docs/06 §5). Cascades to all user-owned records. */
@@ -56,7 +58,8 @@ export async function deleteAccount(_: ActionState, formData: FormData): Promise
   const user = await requireUser();
   if (String(formData.get("confirm") ?? "") !== "DELETE") return { message: 'Type DELETE to confirm.' };
   const row = (await db.select().from(users).where(eq(users.id, user.id)))[0];
-  if (!row || !(await verifyPassword(String(formData.get("password") ?? ""), row.passwordHash))) return { message: "Password is incorrect." };
+  if (!row) return { message: "Account not found." };
+  if (row.passwordHash && !(await verifyPassword(String(formData.get("password") ?? ""), row.passwordHash))) return { message: "Password is incorrect." };
   if (row.role === "admin") {
     const admins = (await db.select({ id: users.id }).from(users).where(eq(users.role, "admin")));
     if (admins.length <= 1) return { message: "You are the only administrator. Promote another admin before deleting this account." };

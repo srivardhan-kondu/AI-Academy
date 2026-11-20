@@ -129,6 +129,18 @@ tests/                  node:test suites
 3. Add a catalogue entry in `content/curriculum.ts` (or insert a row into `interactive_components`).
 4. Use it in any lesson through a "visualization" block in the admin block editor.
 
+## Google sign-in
+
+"Continue with Google" appears on the sign-in and sign-up pages once `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` are set.
+
+1. In [Google Cloud Console](https://console.cloud.google.com/apis/credentials), configure the OAuth consent screen (External, scopes `openid`, `email` and `profile`).
+2. Create an **OAuth client ID** of type **Web application** with:
+   - Authorized JavaScript origins: `https://srivardhan.net` (and `http://localhost:3000` for local development)
+   - Authorized redirect URIs: `https://srivardhan.net/auth/google/callback` (and `http://localhost:3000/auth/google/callback`)
+3. Add `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to `.env.local` and to the Vercel project's environment variables, then redeploy.
+
+How it works: an authorization-code flow with `state` and PKCE (`app/auth/google/*`, `lib/auth/google.ts`), with the ID token's issuer, audience and expiry validated. New Google users become students. A Google account whose verified email matches an existing account is linked to it. If that account's email was never verified, its password and sessions are removed first, which prevents account pre-hijacking. Google-only users can add a password later under Account.
+
 ## Technology choices
 
 Next.js 16, React 19, TypeScript, Tailwind 4, and **Drizzle ORM on Neon PostgreSQL** (via `pg`). Authentication is built in: hashed-token sessions stored in Postgres, in HTTP-only cookies.

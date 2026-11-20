@@ -30,6 +30,7 @@ type Mods = {
   progress: typeof import("../lib/progress");
   perms: typeof import("../lib/permissions");
   orm: typeof import("drizzle-orm");
+  google: typeof import("../lib/auth/google");
 };
 let m: Mods;
 
@@ -55,6 +56,7 @@ before(async () => {
     progress: await import("../lib/progress"),
     perms: await import("../lib/permissions"),
     orm: await import("drizzle-orm"),
+    google: await import("../lib/auth/google"),
   };
   const { seed } = await import("../scripts/seed");
   const log = console.log;
@@ -198,4 +200,50 @@ test("seeded curriculum matches the launch scope", async () => {
     assert.ok(blocks.every((b) => !("invalid" in b)), `all blocks valid in ${l.slug}`);
     assert.equal((await m.progress.lessonQuizIds(l.id)).length, 1, `${l.slug} has a knowledge check`);
   }
+});
+
+test("Google ID-token claims are validated", () => {
+  const { validateIdTokenClaims } = m.google;
+  const now = 1_800_000_000;
+  const good = { iss: "https://accounts.google.com", aud: "client-1", sub: "g-1", exp: now + 600, email: "A@Example.com", email_verified: true, name: "Ada", picture: "https://x/p.png" };
+  const p = validateIdTokenClaims(good, "client-1", now);
+  assert.equal(p.email, "a@example.com", "email normalised");
+  assert.equal(p.emailVerified, true);
+  assert.throws(() => validateIdTokenClaims({ ...good, aud: "someone-else" }, "client-1", now), /not issued for this application/);
+  assert.throws(() => validateIdTokenClaims({ ...good, iss: "https://evil.example" }, "client-1", now), /issuer/);
+  assert.throws(() => validateIdTokenClaims({ ...good, exp: now - 3600 }, "client-1", now), /expired/);
+  assert.equal(validateIdTokenClaims({ ...good, picture: "http://insecure" }, "client-1", now).picture, null);
+});
+
+test("Google sign-in creates, reuses and safely links accounts", async () => {
+  const { upsertGoogleUser } = m.google;
+  const { users, sessions, oauthAccounts } = m.schema;
+  const { eq } = m.orm;
+  const base = { emailVerified: true, name: "New Learner", picture: null };
+
+  // New user
+  const created = await upsertGoogleUser({ ...base, sub: "g-new", email: "new@gmail.test" });
+  assert.equal(created.isNew, true);
+  const [u] = await m.db.db.select().from(users).where(eq(users.id, created.userId));
+  assert.equal(u.passwordHash, null);
+  assert.equal(u.role, "student", "Google users never get elevated roles");
+  assert.ok(u.emailVerifiedAt);
+
+  // Same Google account again -> same user
+  const again = await upsertGoogleUser({ ...base, sub: "g-new", email: "new@gmail.test" });
+  assert.deepEqual(again, { userId: created.userId, isNew: false });
+
+  // Pre-hijacking protection: an unverified password account with the victim's email
+  const attacker = crypto.randomUUID();
+  await m.db.db.insert(users).values({ id: attacker, email: "victim@gmail.test", passwordHash: "attacker-hash", role: "student" });
+  await m.db.db.insert(sessions).values({ id: `s-${attacker}`, userId: attacker, expiresAt: new Date(Date.now() + 1e9) });
+  const linked = await upsertGoogleUser({ ...base, sub: "g-victim", email: "victim@gmail.test" });
+  assert.equal(linked.userId, attacker, "linked to the existing account");
+  const [after] = await m.db.db.select().from(users).where(eq(users.id, attacker));
+  assert.equal(after.passwordHash, null, "unverified password removed");
+  assert.equal((await m.db.db.select().from(sessions).where(eq(sessions.userId, attacker))).length, 0, "old sessions revoked");
+  assert.equal((await m.db.db.select().from(oauthAccounts).where(eq(oauthAccounts.userId, attacker))).length, 1);
+
+  // Unverified Google emails are refused
+  await assert.rejects(upsertGoogleUser({ ...base, emailVerified: false, sub: "g-x", email: "x@gmail.test" }), /not verified/);
 });

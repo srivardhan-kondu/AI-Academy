@@ -61,6 +61,9 @@ export async function signIn(_: ActionState, formData: FormData): Promise<Action
   const user = (await db.select().from(users).where(eq(users.email, email)))[0];
   // Always run bcrypt to keep timing similar whether or not the account exists.
   const ok = await verifyPassword(password, user?.passwordHash ?? dummyHash());
+  if (user && !user.passwordHash) {
+    return { message: "This account uses Google sign-in. Choose “Continue with Google” instead." };
+  }
   if (!user || !ok) return { message: "Incorrect email or password." };
   await createSession(user.id);
   redirect(safeNext(formData.get("next")));

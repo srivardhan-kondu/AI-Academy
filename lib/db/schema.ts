@@ -41,10 +41,28 @@ export type Role = "student" | "editor" | "admin";
 export const users = pgTable("users", {
   id: id(),
   email: text("email").notNull().unique(),
-  passwordHash: text("password_hash").notNull(),
+  /** Null for accounts that only sign in with Google. */
+  passwordHash: text("password_hash"),
+  /** Set when an identity provider (Google) has confirmed the email address. */
+  emailVerifiedAt: ts("email_verified_at"),
   role: text("role").$type<Role>().notNull().default("student"),
   createdAt: createdAt(),
 });
+
+/** External identities (e.g. Google) linked to a user. */
+export const oauthAccounts = pgTable(
+  "oauth_accounts",
+  {
+    id: id(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    provider: text("provider").$type<"google">().notNull(),
+    providerAccountId: text("provider_account_id").notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [uniqueIndex("oauth_provider_account_unique").on(t.provider, t.providerAccountId), index("oauth_user_idx").on(t.userId)],
+);
 
 export const sessions = pgTable(
   "sessions",
