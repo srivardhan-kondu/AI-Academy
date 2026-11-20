@@ -2,14 +2,9 @@ import { eq } from "drizzle-orm";
 import type { DB } from "../lib/db";
 import * as s from "../lib/db/schema";
 import { hashPassword } from "../lib/auth/password";
-import { validateBlock } from "../lib/lesson/blocks";
 import { SCHOOLS, MODULES, PATHS, LABS, ACHIEVEMENTS } from "../content/curriculum";
 import { PROJECTS } from "../content/projects";
-import { foundationLessons } from "../content/lessons/foundations";
-import { mlLessons } from "../content/lessons/machine-learning";
-import { genAiLessons } from "../content/lessons/genai";
-
-const REVIEWED = new Date("2026-11-15T00:00:00Z");
+import { ALL_LESSONS, insertLesson } from "./lesson-writer";
 
 export async function seed(db: DB) {
   /* Admin user */
@@ -42,72 +37,17 @@ export async function seed(db: DB) {
   }
 
   /* Lessons, blocks and quizzes */
-  const lessons = [...foundationLessons, ...mlLessons, ...genAiLessons];
   const lessonIds = new Map<string, string>();
-  for (const l of lessons) {
-    lessonIds.set(l.slug, crypto.randomUUID());
-  }
-  for (const l of lessons) {
-    const lessonId = lessonIds.get(l.slug)!;
+  for (const l of ALL_LESSONS) lessonIds.set(l.slug, crypto.randomUUID());
+  for (const l of ALL_LESSONS) {
     const moduleId = moduleIds.get(l.module);
     if (!moduleId) throw new Error(`Unknown module ${l.module} for lesson ${l.slug}`);
-    const prereqs = (l.prerequisites ?? []).map((p) => {
+    const prerequisiteIds = (l.prerequisites ?? []).map((p) => {
       const id = lessonIds.get(p);
       if (!id) throw new Error(`Unknown prerequisite ${p} for ${l.slug}`);
       return id;
     });
-    await db.insert(s.lessons)
-      .values({
-        id: lessonId,
-        moduleId,
-        slug: l.slug,
-        title: l.title,
-        summary: l.summary,
-        difficulty: l.difficulty,
-        estimatedMinutes: l.minutes,
-        accessTier: l.tier ?? "free",
-        learningObjectives: l.objectives,
-        prerequisiteLessonIds: prereqs,
-        references: l.references,
-        displayOrder: l.order,
-        status: "published",
-        version: 1,
-        publishedAt: REVIEWED,
-        lastReviewedAt: REVIEWED,
-        createdBy: adminId,
-        updatedBy: adminId,
-      })
-      ;
-
-    const quiz = (await db
-      .insert(s.quizzes)
-      .values({ lessonId, title: l.quiz.title, passThreshold: l.quiz.passThreshold ?? 66 })
-      .returning({ id: s.quizzes.id })
-      )[0];
-    for (const [i, q] of l.quiz.questions.entries()) {
-      await db.insert(s.quizQuestions)
-        .values({
-          quizId: quiz.id,
-          questionType: q.type,
-          prompt: q.prompt,
-          optionsJson: q.type === "true_false" ? ["True", "False"] : q.options!,
-          answerKey: q.answer,
-          explanation: q.explanation,
-          displayOrder: i,
-        })
-        ;
-    }
-
-    const blockRows = l.blocks.map((b, i) => {
-      const content = b.type === "quiz" ? { quizId: quiz.id } : b.content;
-      const v = validateBlock(b.type, content);
-      if (!v.ok) throw new Error(`Invalid ${b.type} block #${i + 1} in ${l.slug}: ${v.error}`);
-      return { lessonId, blockType: b.type, displayOrder: i, contentJson: v.content };
-    });
-    await db.insert(s.lessonBlocks).values(blockRows);
-    await db.insert(s.lessonRevisions)
-      .values({ lessonId, version: 1, createdBy: adminId, snapshotJson: { lesson: { slug: l.slug, title: l.title }, blocks: blockRows } })
-      ;
+    await insertLesson(db, l, { lessonId: lessonIds.get(l.slug)!, moduleId, prerequisiteIds, authorId: adminId });
   }
 
   /* Learning paths */
