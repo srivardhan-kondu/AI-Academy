@@ -1,37 +1,205 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-200: #c7d2fe;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-900: #312e81;
-  --color-ink: #0f172a;
-  --color-muted: #475569;
-}
-
+/* ------------------------------------------------------------------ */
+/* Design tokens — warm editorial system                              */
+/* ------------------------------------------------------------------ */
 :root {
   color-scheme: light;
+
+  --paper: #f4f3ee;
+  --surface: #fcfbf8;
+  --surface-2: #eeede4;
+  --ink: #1c241f;
+  --ink-2: #565e54;
+  --ink-3: #6b7268;
+  --line: #e2e0d7;
+  --brand: #16564b;
+  --brand-2: #1e8a77;
+  --brand-weak: #e4ede8;
+  --amber: #e0a009;
+  --amber-weak: #fbf0d4;
+  --amber-ink: #8a6200;
+  --good: #1e7a5b;
+  --good-weak: #e0efe7;
+  --bad: #b23a2e;
+  --bad-weak: #f6e4e0;
+
+  /* Nested-diagram ring steps, outer → inner */
+  --ring-1: #16564b;
+  --ring-2: #1e8a77;
+  --ring-3: #3aa48f;
+  --ring-4: #e0a009;
+}
+
+@theme inline {
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --color-brand-weak: var(--brand-weak);
+  --color-amber: var(--amber);
+  --color-amber-weak: var(--amber-weak);
+  --color-amber-ink: var(--amber-ink);
+  --color-good: var(--good);
+  --color-good-weak: var(--good-weak);
+  --color-bad: var(--bad);
+  --color-bad-weak: var(--bad-weak);
+  --color-muted: var(--ink-2);
+}
+
+/*
+ * Palette remaps: existing utility classes across the app (slate, emerald,
+ * rose…) resolve to the design system, so every page shares one look.
+ */
+@theme {
+  --color-white: #fcfbf8;
+
+  --color-brand-50: #e4ede8;
+  --color-brand-100: #d4e5dd;
+  --color-brand-200: #b7d3c7;
+  --color-brand-300: #8dbbaa;
+  --color-brand-400: #3aa48f;
+  --color-brand-500: #1e8a77;
+  --color-brand-600: #16564b;
+  --color-brand-700: #124a40;
+  --color-brand-800: #0f3d35;
+  --color-brand-900: #0b2e28;
+
+  --color-slate-50: #f6f5f0;
+  --color-slate-100: #eeede4;
+  --color-slate-200: #e2e0d7;
+  --color-slate-300: #d2d0c5;
+  --color-slate-400: #9ea397;
+  --color-slate-500: #6b7268;
+  --color-slate-600: #565e54;
+  --color-slate-700: #434b42;
+  --color-slate-800: #2d352f;
+  --color-slate-900: #1c241f;
+  --color-slate-950: #121814;
+  --color-zinc-100: #eeede4;
+  --color-zinc-200: #e2e0d7;
+  --color-zinc-600: #565e54;
+
+  --color-emerald-50: #e0efe7;
+  --color-emerald-100: #cfe6da;
+  --color-emerald-200: #b3d7c4;
+  --color-emerald-300: #8cc3a7;
+  --color-emerald-400: #4fa07c;
+  --color-emerald-500: #2b8a65;
+  --color-emerald-600: #1e7a5b;
+  --color-emerald-700: #1a6a4f;
+  --color-emerald-800: #155741;
+  --color-emerald-900: #104432;
+
+  --color-rose-50: #f6e4e0;
+  --color-rose-200: #ebc5bd;
+  --color-rose-400: #cf7a6e;
+  --color-rose-500: #c0574a;
+  --color-rose-700: #b23a2e;
+  --color-rose-800: #8f2e25;
+  --color-red-50: #f6e4e0;
+  --color-red-300: #e2a89f;
+  --color-red-600: #b23a2e;
+  --color-red-700: #962f25;
+  --color-red-800: #7c271f;
+  --color-red-900: #63201a;
+
+  --color-amber-50: #fbf0d4;
+  --color-amber-100: #f8e6b8;
+  --color-amber-200: #f0d58c;
+  --color-amber-400: #e9b43b;
+  --color-amber-500: #e0a009;
+  --color-amber-600: #b98306;
+  --color-amber-700: #8a6200;
+  --color-amber-800: #6f4f00;
+  --color-amber-900: #573e00;
+
+  /* Secondary hues collapse into the spruce family. */
+  --color-sky-50: #e4ede8;
+  --color-sky-200: #b7d3c7;
+  --color-sky-800: #124a40;
+  --color-violet-50: #e4ede8;
+  --color-violet-200: #b7d3c7;
+  --color-violet-700: #16564b;
+  --color-violet-800: #124a40;
+  --color-violet-900: #0f3d35;
+  --color-indigo-50: #e4ede8;
+  --color-indigo-600: #16564b;
+
+  /* Flat editorial depth: borders + surface steps, not shadows. */
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow: none;
+  --shadow-md: none;
+
+  --radius-lg: 9px;
+
+  /* Larger default type scale (affects pages using text-sm / text-base…). */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.625rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+}
+
+html {
+  background: var(--paper);
+  /* Everything is sized in rem, so the whole UI scales up on larger screens. */
+  font-size: 100%;
+}
+@media (min-width: 768px) {
+  html { font-size: 106.25%; } /* 17px */
+}
+@media (min-width: 1280px) {
+  html { font-size: 112.5%; } /* 18px */
+}
+@media (min-width: 1600px) {
+  html { font-size: 118.75%; } /* 19px */
+}
+@media (min-width: 1850px) {
+  html { font-size: 125%; } /* 20px */
 }
 
 body {
-  background: #fbfbfd;
-  color: var(--color-ink);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--brand-weak);
+  color: var(--ink);
 }
 
 /* Visible focus for keyboard users everywhere. */
 :focus-visible {
-  outline: 3px solid var(--color-brand-500);
+  outline: 2px solid var(--brand-2);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
@@ -43,99 +211,122 @@ body {
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  @apply inline-flex items-center justify-center gap-2 rounded-[9px] px-4 py-2 text-[1rem] font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[71.875rem] px-5 sm:px-6 lg:px-[25px];
   }
   .btn-primary {
-    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+    @apply btn bg-brand text-surface hover:bg-brand-700;
   }
   .btn-secondary {
-    @apply btn border border-slate-300 bg-white text-slate-800 hover:bg-slate-50;
+    @apply btn border border-line bg-surface text-ink hover:bg-surface-2;
   }
   .btn-ghost {
-    @apply btn text-slate-700 hover:bg-slate-100;
+    @apply btn font-medium text-ink-2 hover:bg-surface-2 hover:text-ink;
   }
   .btn-danger {
-    @apply btn bg-red-600 text-white hover:bg-red-700;
+    @apply btn bg-bad text-surface hover:bg-red-700;
   }
   .btn-sm {
-    @apply px-2.5 py-1 text-xs;
+    @apply px-2.5 py-1 text-[0.9062rem];
   }
   .card {
-    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+    @apply rounded-[14px] border border-line bg-surface;
   }
   .input {
-    @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200;
+    @apply block w-full rounded-[9px] border border-line bg-surface px-3 py-2 text-sm text-ink placeholder:text-ink-3 focus:border-brand-2 focus:outline-none focus:ring-2 focus:ring-brand-weak;
   }
   .label {
-    @apply mb-1 block text-sm font-medium text-slate-700;
+    @apply mb-1 block text-sm font-medium text-ink-2;
   }
   .badge {
-    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium;
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[0.875rem] font-medium;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-[8px] border border-line bg-surface px-2.5 py-1 text-[0.9062rem] font-medium text-ink-2;
   }
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-wider text-brand-600;
+    @apply text-[0.9062rem] font-semibold text-brand-2;
+  }
+  .section-no {
+    @apply font-mono text-[0.9062rem] font-medium text-brand-2;
   }
   .table {
     @apply w-full text-left text-sm;
   }
   .table th {
-    @apply border-b border-slate-200 px-3 py-2 font-semibold text-slate-600;
+    @apply border-b border-line px-3 py-2 font-semibold text-ink-2;
   }
   .table td {
-    @apply border-b border-slate-100 px-3 py-2 align-top;
+    @apply border-b border-line px-3 py-2 align-top;
   }
 }
 
-/* Long-form lesson typography */
+/* ------------------------------------------------------------------ */
+/* Long-form lesson typography (serif reading body)                   */
+/* ------------------------------------------------------------------ */
 .prose-lesson {
-  @apply text-[1.0625rem] leading-relaxed text-slate-800;
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.68;
+  color: var(--ink);
+  max-width: 62ch;
 }
 .prose-lesson > * + * {
-  @apply mt-4;
+  margin-top: 1em;
 }
 .prose-lesson h2 {
-  @apply mt-8 text-2xl font-bold text-slate-900;
+  @apply mt-8 font-sans text-[1.9375rem] font-semibold tracking-[-0.02em] text-ink;
 }
 .prose-lesson h3 {
-  @apply mt-6 text-xl font-semibold text-slate-900;
+  @apply mt-6 font-sans text-[1.375rem] font-semibold text-ink;
 }
 .prose-lesson a {
-  @apply font-medium text-brand-700 underline underline-offset-2;
+  @apply font-medium text-brand underline decoration-brand-2/40 underline-offset-[3px] hover:decoration-brand-2;
 }
 .prose-lesson ul {
-  @apply list-disc space-y-1 pl-6;
+  @apply list-disc space-y-1.5 pl-6 marker:text-brand-2;
 }
 .prose-lesson ol {
-  @apply list-decimal space-y-1 pl-6;
+  @apply list-decimal space-y-1.5 pl-6 marker:font-sans marker:text-[0.85em] marker:font-semibold marker:text-brand-2;
 }
 .prose-lesson code {
-  @apply rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[0.9em] text-slate-800;
+  @apply rounded-[5px] bg-surface-2 px-1.5 py-0.5 font-mono text-[0.8em] text-ink;
 }
 .prose-lesson pre code {
   @apply bg-transparent p-0;
 }
 .prose-lesson pre {
-  @apply overflow-x-auto rounded-xl bg-slate-900 p-4 text-sm text-slate-100;
+  @apply overflow-x-auto rounded-[12px] bg-ink p-4 text-sm text-surface;
 }
 .prose-lesson blockquote {
-  @apply border-l-4 border-brand-200 pl-4 italic text-slate-600;
+  @apply rounded-r-[12px] border-l-[3px] border-brand-2 bg-surface py-3 pr-4 pl-5 text-ink-2;
 }
 .prose-lesson table {
-  @apply w-full border-collapse text-sm;
+  @apply w-full border-collapse font-sans text-sm;
 }
 .prose-lesson th,
 .prose-lesson td {
-  @apply border border-slate-200 px-3 py-2 text-left;
+  @apply border border-line px-3 py-2 text-left;
 }
 .prose-lesson strong {
-  @apply font-semibold text-slate-900;
+  @apply font-semibold text-ink;
+}
+.prose-lesson em {
+  font-style: italic;
+}
+
+/* Lead paragraph style */
+.lead {
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+  font-size: 1.4375rem;
+  line-height: 1.6;
+  color: var(--ink);
 }
 
 input[type="range"] {
-  accent-color: var(--color-brand-600);
+  accent-color: var(--brand-2);
 }

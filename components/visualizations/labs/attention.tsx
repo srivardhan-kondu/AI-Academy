@@ -83,7 +83,7 @@ export default function Attention() {
               style={{ backgroundColor: `rgba(79,70,229,${q === i ? 0.08 : weights[i] * 0.9})`, color: weights[i] > 0.45 && q !== i ? "white" : undefined }}
             >
               <span className="font-medium">{t}</span>
-              <span className="font-mono text-[10px]">{(weights[i] * 100).toFixed(0)}%</span>
+              <span className="font-mono text-[0.625rem]">{(weights[i] * 100).toFixed(0)}%</span>
             </button>
           ))}
         </div>
@@ -92,7 +92,7 @@ export default function Attention() {
         {weights.map((w, i) => (
           <div key={i} className="flex flex-1 flex-col items-center justify-end">
             <div className={`w-full rounded-t ${i === top.i ? "bg-brand-600" : "bg-brand-200"}`} style={{ height: `${Math.max(2, w * 100)}%` }} />
-            <span className="mt-1 truncate text-[9px] text-slate-500">{toks[i]}</span>
+            <span className="mt-1 truncate text-[0.5625rem] text-slate-500">{toks[i]}</span>
           </div>
         ))}
       </div>

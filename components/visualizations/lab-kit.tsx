@@ -18,15 +18,15 @@ export function LabShell({
   return (
     <div className="space-y-4">
       {children}
-      <div className="rounded-xl bg-slate-50 p-4 text-sm text-slate-800" aria-live="polite">
-        <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">What&apos;s happening</p>
+      <div className="rounded-[12px] bg-surface-2 px-4 py-3.5 font-serif text-[1.0938rem] leading-[1.55] text-ink" aria-live="polite">
+        <p className="mb-1 font-sans text-[0.875rem] font-medium text-ink-2">What&apos;s happening</p>
         {explanation}
       </div>
       <div className="flex flex-wrap items-center justify-between gap-3">
         {challenge ? (
           <p
-            className={`flex items-start gap-2 rounded-lg px-3 py-2 text-sm ${
-              challenge.done ? "bg-emerald-50 text-emerald-900" : "bg-violet-50 text-violet-900"
+            className={`flex items-start gap-2 rounded-[9px] px-3 py-2 text-sm ${
+              challenge.done ? "bg-good-weak text-good" : "bg-brand-weak text-brand"
             }`}
           >
             {challenge.done ? (
@@ -116,11 +116,11 @@ export function mulberry32(seed: number) {
 
 /** Colour + shape pairs so categories never rely on colour alone. */
 export const SERIES = [
-  { color: "#4f46e5", shape: "circle", name: "indigo circle" },
-  { color: "#ea580c", shape: "square", name: "orange square" },
-  { color: "#059669", shape: "triangle", name: "green triangle" },
-  { color: "#db2777", shape: "diamond", name: "pink diamond" },
-  { color: "#0891b2", shape: "cross", name: "cyan cross" },
+  { color: "#16564B", shape: "circle", name: "indigo circle" },
+  { color: "#C98A06", shape: "square", name: "orange square" },
+  { color: "#1E7A5B", shape: "triangle", name: "green triangle" },
+  { color: "#B23A2E", shape: "diamond", name: "pink diamond" },
+  { color: "#3AA48F", shape: "cross", name: "cyan cross" },
 ] as const;
 
 export function Marker({ x, y, series, size = 5, filled = true }: { x: number; y: number; series: number; size?: number; filled?: boolean }) {

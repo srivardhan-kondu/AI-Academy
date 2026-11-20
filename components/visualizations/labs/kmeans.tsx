@@ -118,7 +118,7 @@ export default function KMeans() {
           >
             {labels && POINTS.map((p, i) => <line key={`l${i}`} x1={sx(p.x)} y1={sy(p.y)} x2={sx(cents[labels[i]].x)} y2={sy(cents[labels[i]].y)} stroke={SERIES[labels[i]].color} strokeOpacity={0.15} />)}
             {POINTS.map((p, i) =>
-              labels ? <Marker key={i} x={sx(p.x)} y={sy(p.y)} series={labels[i]} size={4} /> : <circle key={i} cx={sx(p.x)} cy={sy(p.y)} r={4} fill="#94a3b8" />,
+              labels ? <Marker key={i} x={sx(p.x)} y={sy(p.y)} series={labels[i]} size={4} /> : <circle key={i} cx={sx(p.x)} cy={sy(p.y)} r={4} fill="#9EA397" />,
             )}
             {cents.map((c, i) => (
               <g
@@ -134,7 +134,7 @@ export default function KMeans() {
                   if (delta[e.key]) { e.preventDefault(); moveTo(i, { x: c.x + delta[e.key][0], y: c.y + delta[e.key][1] }); }
                 }}
               >
-                <circle cx={sx(c.x)} cy={sy(c.y)} r={14} fill="white" stroke="#0f172a" strokeWidth={2} />
+                <circle cx={sx(c.x)} cy={sy(c.y)} r={14} fill="white" stroke="#1C241F" strokeWidth={2} />
                 <Marker x={sx(c.x)} y={sy(c.y)} series={i} size={7} />
               </g>
             ))}

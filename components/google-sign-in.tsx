@@ -30,7 +30,7 @@ export function GoogleSignInButton({ next, label = "Continue with Google" }: { n
         </svg>
         {label}
       </a>
-      <div className="my-5 flex items-center gap-3 text-xs uppercase tracking-wide text-slate-400" aria-hidden>
+      <div className="my-5 flex items-center gap-3 text-xs text-slate-400" aria-hidden>
         <span className="h-px flex-1 bg-slate-200" /> or <span className="h-px flex-1 bg-slate-200" />
       </div>
     </>

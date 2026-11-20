@@ -24,7 +24,7 @@ export default async function SchoolPage({ params }: PageProps<"/academy/schools
   return (
     <>
       <PageHeader eyebrow={`School ${String(school.displayOrder).padStart(2, "0")} · Level ${school.level}: ${LEVEL_NAMES[school.level]}`} title={school.title} description={school.description} />
-      <div className="container-page grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="container-page grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="space-y-10">
           {modules.map((m) => (
             <section key={m.id} aria-labelledby={`m-${m.id}`}>

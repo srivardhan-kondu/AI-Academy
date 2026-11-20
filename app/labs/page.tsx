@@ -20,7 +20,7 @@ export default async function LabsPage() {
               <TierBadge tier={lab.accessTier} />
             </span>
             <span className="mt-3 text-lg font-semibold text-slate-900 group-hover:text-brand-700">{lab.title}</span>
-            <span className="text-xs font-medium uppercase tracking-wide text-slate-500">{lab.concept}</span>
+            <span className="text-xs font-medium text-slate-500">{lab.concept}</span>
             <span className="mt-2 flex-1 text-sm text-slate-600">{lab.description}</span>
             <span className="mt-3 flex items-center gap-1 text-sm font-semibold text-brand-700">Open lab <ArrowRight aria-hidden className="h-4 w-4" /></span>
           </Link>

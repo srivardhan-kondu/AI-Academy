@@ -48,18 +48,18 @@ export default function LinearRegression() {
       }
     >
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full rounded-xl border border-slate-200 bg-white" role="img" aria-label={`Scatter plot of hours studied versus exam score with a line of slope ${m.toFixed(1)} and intercept ${b.toFixed(1)}`}>
-        <line x1={PAD} y1={H - PAD} x2={W - 5} y2={H - PAD} stroke="#94a3b8" />
-        <line x1={PAD} y1={5} x2={PAD} y2={H - PAD} stroke="#94a3b8" />
-        <text x={W / 2} y={H - 6} textAnchor="middle" className="text-[11px]" fill="#475569">Hours studied</text>
-        <text x={10} y={H / 2} textAnchor="middle" transform={`rotate(-90 10 ${H / 2})`} className="text-[11px]" fill="#475569">Exam score</text>
-        {[0, 2, 4, 6, 8].map((t) => <text key={t} x={sx(t)} y={H - PAD + 14} textAnchor="middle" className="text-[10px]" fill="#64748b">{t}</text>)}
-        {[40, 60, 80, 100].map((t) => <text key={t} x={PAD - 6} y={sy(t) + 3} textAnchor="end" className="text-[10px]" fill="#64748b">{t}</text>)}
+        <line x1={PAD} y1={H - PAD} x2={W - 5} y2={H - PAD} stroke="#9EA397" />
+        <line x1={PAD} y1={5} x2={PAD} y2={H - PAD} stroke="#9EA397" />
+        <text x={W / 2} y={H - 6} textAnchor="middle" className="text-[0.6875rem]" fill="#565E54">Hours studied</text>
+        <text x={10} y={H / 2} textAnchor="middle" transform={`rotate(-90 10 ${H / 2})`} className="text-[0.6875rem]" fill="#565E54">Exam score</text>
+        {[0, 2, 4, 6, 8].map((t) => <text key={t} x={sx(t)} y={H - PAD + 14} textAnchor="middle" className="text-[0.625rem]" fill="#6B7268">{t}</text>)}
+        {[40, 60, 80, 100].map((t) => <text key={t} x={PAD - 6} y={sy(t) + 3} textAnchor="end" className="text-[0.625rem]" fill="#6B7268">{t}</text>)}
         {DATA.map(([x, y], i) => (
-          <line key={`r${i}`} x1={sx(x)} y1={sy(y)} x2={sx(x)} y2={sy(m * x + b)} stroke="#ea580c" strokeDasharray="3 3" />
+          <line key={`r${i}`} x1={sx(x)} y1={sy(y)} x2={sx(x)} y2={sy(m * x + b)} stroke="#C98A06" strokeDasharray="3 3" />
         ))}
-        {showBest && <line x1={sx(0)} y1={sy(best.b)} x2={sx(9)} y2={sy(best.m * 9 + best.b)} stroke="#059669" strokeWidth={2} strokeDasharray="8 4" />}
-        <line x1={sx(0)} y1={sy(b)} x2={sx(9)} y2={sy(m * 9 + b)} stroke="#4f46e5" strokeWidth={2.5} />
-        {DATA.map(([x, y], i) => <circle key={i} cx={sx(x)} cy={sy(y)} r={5} fill="#0f172a" />)}
+        {showBest && <line x1={sx(0)} y1={sy(best.b)} x2={sx(9)} y2={sy(best.m * 9 + best.b)} stroke="#1E7A5B" strokeWidth={2} strokeDasharray="8 4" />}
+        <line x1={sx(0)} y1={sy(b)} x2={sx(9)} y2={sy(m * 9 + b)} stroke="#16564B" strokeWidth={2.5} />
+        {DATA.map(([x, y], i) => <circle key={i} cx={sx(x)} cy={sy(y)} r={5} fill="#1C241F" />)}
       </svg>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-3">

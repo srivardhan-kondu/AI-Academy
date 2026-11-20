@@ -15,7 +15,7 @@ export default async function ProjectsPage() {
       <div className="container-page grid gap-4 py-10 md:grid-cols-2">
         {projects.map((p) => (
           <Link key={p.id} href={`/projects/${p.slug}`} className="card group flex flex-col p-5 hover:border-brand-300 hover:shadow">
-            <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-600"><Hammer aria-hidden className="h-3.5 w-3.5" /> Project · ~{p.estimatedHours} h</span>
+            <span className="flex items-center gap-2 text-xs font-semibold text-brand-600"><Hammer aria-hidden className="h-3.5 w-3.5" /> Project · ~{p.estimatedHours} h</span>
             <span className="mt-2 text-lg font-semibold text-slate-900 group-hover:text-brand-700">{p.title}</span>
             <span className="mt-1 flex-1 text-sm text-slate-600">{p.description}</span>
             <span className="mt-3 flex gap-1.5"><DifficultyBadge level={p.difficulty} /><TierBadge tier={p.accessTier} /></span>

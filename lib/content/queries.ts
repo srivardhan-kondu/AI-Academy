@@ -230,7 +230,15 @@ export async function getLesson(by: { slug: string } | { id: string }, opts: { p
         )
     : [];
 
-  return { ...row, prerequisites, next: await getNextLesson(row.lesson.id) };
+  const siblings = await db
+    .select({ id: lessons.id })
+    .from(lessons)
+    .where(and(eq(lessons.moduleId, row.module.id), lessonVisible()))
+    .orderBy(asc(lessons.displayOrder));
+  const index = siblings.findIndex((s) => s.id === row.lesson.id);
+  const position = index >= 0 ? { index: index + 1, total: siblings.length } : null;
+
+  return { ...row, prerequisites, position, next: await getNextLesson(row.lesson.id) };
 }
 
 /** Next lesson: next in module, otherwise first lesson of the next module in the same school. */

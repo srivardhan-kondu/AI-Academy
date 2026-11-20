@@ -23,7 +23,7 @@ const NAV = [
 export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
   const user = await requireEditor();
   return (
-    <div className="container-page grid gap-8 py-8 lg:grid-cols-[200px_minmax(0,1fr)]">
+    <div className="container-page grid gap-8 py-8 lg:grid-cols-[12.5rem_minmax(0,1fr)]">
       <aside>
         <p className="eyebrow">Content admin</p>
         <p className="mt-1 text-xs text-slate-500">Signed in as {user.role}</p>

@@ -94,21 +94,21 @@ export default function GradientDescent({ config }: LabProps) {
         ))}
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full rounded-xl border border-slate-200 bg-white" role="img" aria-label={`Loss curve with ${steps} gradient descent steps; current x is ${Number.isFinite(x) ? x.toFixed(2) : "diverged"}`}>
-        <line x1={sx(0)} y1={0} x2={sx(0)} y2={H} stroke="#e2e8f0" />
-        <line x1={0} y1={sy(0)} x2={W} y2={sy(0)} stroke="#e2e8f0" />
-        <path d={curve} fill="none" stroke="#4f46e5" strokeWidth={2.5} />
+        <line x1={sx(0)} y1={0} x2={sx(0)} y2={H} stroke="#E2E0D7" />
+        <line x1={0} y1={sy(0)} x2={W} y2={sy(0)} stroke="#E2E0D7" />
+        <path d={curve} fill="none" stroke="#16564B" strokeWidth={2.5} />
         {path.slice(0, -1).map((p, i) => {
           const q = path[i + 1];
           if (!Number.isFinite(q) || Math.abs(q) > XMAX + 1) return null;
-          return <line key={i} x1={sx(p)} y1={sy(F.f(p))} x2={sx(q)} y2={sy(F.f(q))} stroke="#ea580c" strokeWidth={1.5} strokeDasharray="4 3" />;
+          return <line key={i} x1={sx(p)} y1={sy(F.f(p))} x2={sx(q)} y2={sy(F.f(q))} stroke="#C98A06" strokeWidth={1.5} strokeDasharray="4 3" />;
         })}
         {path.map((p, i) =>
           Number.isFinite(p) && Math.abs(p) <= XMAX ? (
-            <circle key={i} cx={sx(p)} cy={sy(F.f(p))} r={i === path.length - 1 ? 7 : 3.5} fill={i === path.length - 1 ? "#ea580c" : "#fdba74"} stroke="#9a3412" />
+            <circle key={i} cx={sx(p)} cy={sy(F.f(p))} r={i === path.length - 1 ? 7 : 3.5} fill={i === path.length - 1 ? "#C98A06" : "#F0D58C"} stroke="#8A6200" />
           ) : null,
         )}
-        <text x={8} y={16} className="text-[11px]" fill="#64748b">loss</text>
-        <text x={W - 14} y={sy(0) - 6} className="text-[11px]" fill="#64748b">x</text>
+        <text x={8} y={16} className="text-[0.6875rem]" fill="#6B7268">loss</text>
+        <text x={W - 14} y={sy(0) - 6} className="text-[0.6875rem]" fill="#6B7268">x</text>
       </svg>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-3">

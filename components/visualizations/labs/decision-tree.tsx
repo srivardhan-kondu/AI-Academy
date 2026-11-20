@@ -96,16 +96,16 @@ export default function DecisionTree() {
           <svg viewBox={`0 0 ${W} ${H}`} className="w-full rounded-xl border border-slate-200 bg-white" role="img" aria-label={`Scatter plot split into ${stats.length} regions; accuracy ${(acc * 100).toFixed(0)} percent`}>
             <defs>
               <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="8" stroke="#fdba74" strokeWidth="2" />
+                <line x1="0" y1="0" x2="0" y2="8" stroke="#F0D58C" strokeWidth="2" />
               </pattern>
             </defs>
             {stats.map((l, i) => (
-              <rect key={i} x={sx(l.rect.x0)} y={sy(l.rect.y1)} width={sx(l.rect.x1) - sx(l.rect.x0)} height={sy(l.rect.y0) - sy(l.rect.y1)} fill={l.pred ? "#d1fae5" : "url(#hatch)"} opacity={0.8} stroke="#334155" strokeDasharray="4 3" />
+              <rect key={i} x={sx(l.rect.x0)} y={sy(l.rect.y1)} width={sx(l.rect.x1) - sx(l.rect.x0)} height={sy(l.rect.y0) - sy(l.rect.y1)} fill={l.pred ? "#E0EFE7" : "url(#hatch)"} opacity={0.8} stroke="#434B42" strokeDasharray="4 3" />
             ))}
-            <line x1={PAD} y1={H - PAD} x2={W} y2={H - PAD} stroke="#94a3b8" />
-            <line x1={PAD} y1={0} x2={PAD} y2={H - PAD} stroke="#94a3b8" />
-            <text x={(W + PAD) / 2} y={H - 6} textAnchor="middle" className="text-[11px]" fill="#475569">Hours studied</text>
-            <text x={10} y={H / 2} textAnchor="middle" transform={`rotate(-90 10 ${H / 2})`} className="text-[11px]" fill="#475569">Hours slept</text>
+            <line x1={PAD} y1={H - PAD} x2={W} y2={H - PAD} stroke="#9EA397" />
+            <line x1={PAD} y1={0} x2={PAD} y2={H - PAD} stroke="#9EA397" />
+            <text x={(W + PAD) / 2} y={H - 6} textAnchor="middle" className="text-[0.6875rem]" fill="#565E54">Hours studied</text>
+            <text x={10} y={H / 2} textAnchor="middle" transform={`rotate(-90 10 ${H / 2})`} className="text-[0.6875rem]" fill="#565E54">Hours slept</text>
             {DATA.map((p, i) => <Marker key={i} x={sx(p[0])} y={sy(p[1])} series={p[2] ? 2 : 1} size={5} />)}
           </svg>
           <p className="mt-2 text-xs text-slate-600">

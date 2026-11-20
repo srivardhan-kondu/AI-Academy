@@ -51,11 +51,11 @@ export default async function PathPage({ params }: PageProps<"/academy/paths/[sl
         </div>
       </PageHeader>
 
-      <div className="container-page grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="container-page grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_21.25rem]">
         <ol className="space-y-8">
           {modules.map((m, i) => (
             <li key={m.id}>
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Step {i + 1} · {m.school.title}{!m.isRequired && " · optional"}</p>
+              <p className="text-xs font-semibold text-slate-500">Step {i + 1} · {m.school.title}{!m.isRequired && " · optional"}</p>
               <h2 className="mt-1 text-xl font-bold text-slate-900">
                 <Link href={`/academy/modules/${m.slug}`} className="hover:text-brand-700">{m.title}</Link>
               </h2>

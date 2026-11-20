@@ -71,7 +71,7 @@ export default function EmbeddingExplorer() {
       <div className="grid gap-6 md:grid-cols-[3fr_2fr]">
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full rounded-xl border border-slate-200 bg-white" role="group" aria-label="2D map of word embeddings">
           {neighbours.slice(0, 3).map((n) => (
-            <line key={n.w} x1={sx(s.x)} y1={sy(s.y)} x2={sx(byWord(n.w).x)} y2={sy(byWord(n.w).y)} stroke="#6366f1" strokeDasharray="3 3" />
+            <line key={n.w} x1={sx(s.x)} y1={sy(s.y)} x2={sx(byWord(n.w).x)} y2={sy(byWord(n.w).y)} stroke="#1E8A77" strokeDasharray="3 3" />
           ))}
           {WORDS.map((w) => (
             <g
@@ -85,7 +85,7 @@ export default function EmbeddingExplorer() {
               onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), setSel(w.w))}
             >
               <Marker x={sx(w.x)} y={sy(w.y)} series={w.g} size={sel === w.w ? 7 : 4.5} filled={sel === w.w || neighbours.some((n) => n.w === w.w)} />
-              <text x={sx(w.x) + 8} y={sy(w.y) + 4} className={`text-[11px] ${sel === w.w ? "font-bold" : ""}`} fill="#0f172a">{w.w}</text>
+              <text x={sx(w.x) + 8} y={sy(w.y) + 4} className={`text-[0.6875rem] ${sel === w.w ? "font-bold" : ""}`} fill="#1C241F">{w.w}</text>
             </g>
           ))}
         </svg>

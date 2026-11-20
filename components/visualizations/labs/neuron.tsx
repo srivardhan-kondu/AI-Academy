@@ -25,7 +25,7 @@ export default function NeuronPlayground() {
   const isAnd = table.every((r) => r.y === r.want);
 
   const edge = (w: number) => ({
-    stroke: w >= 0 ? "#4f46e5" : "#ea580c",
+    stroke: w >= 0 ? "#16564B" : "#C98A06",
     strokeWidth: 1 + Math.abs(w) * 3,
     strokeDasharray: w < 0 ? "6 4" : undefined,
   });
@@ -54,18 +54,18 @@ export default function NeuronPlayground() {
         <svg viewBox="0 0 320 200" className="w-full" role="img" aria-label={`Neuron with output ${out.toFixed(2)}`}>
           <line x1={60} y1={60} x2={200} y2={100} {...edge(s.w1)} />
           <line x1={60} y1={140} x2={200} y2={100} {...edge(s.w2)} />
-          <line x1={240} y1={100} x2={290} y2={100} stroke="#0f172a" strokeWidth={2} />
-          <circle cx={45} cy={60} r={22} fill="#f1f5f9" stroke="#64748b" />
-          <circle cx={45} cy={140} r={22} fill="#f1f5f9" stroke="#64748b" />
-          <text x={45} y={64} textAnchor="middle" className="text-[12px]">x₁={s.x1.toFixed(1)}</text>
-          <text x={45} y={144} textAnchor="middle" className="text-[12px]">x₂={s.x2.toFixed(1)}</text>
-          <text x={125} y={65} className="text-[11px]" fill="#334155">w₁={s.w1.toFixed(1)}</text>
-          <text x={125} y={150} className="text-[11px]" fill="#334155">w₂={s.w2.toFixed(1)}</text>
-          <circle cx={220} cy={100} r={30} fill={`rgba(79,70,229,${0.15 + Math.min(1, Math.abs(out)) * 0.6})`} stroke="#312e81" strokeWidth={2} />
-          <text x={220} y={96} textAnchor="middle" className="text-[11px] font-semibold">Σ → {s.act}</text>
-          <text x={220} y={112} textAnchor="middle" className="text-[11px]">b={s.b.toFixed(1)}</text>
-          <text x={300} y={90} textAnchor="middle" className="text-[12px] font-semibold">y</text>
-          <text x={300} y={118} textAnchor="middle" className="text-[12px]">{out.toFixed(2)}</text>
+          <line x1={240} y1={100} x2={290} y2={100} stroke="#1C241F" strokeWidth={2} />
+          <circle cx={45} cy={60} r={22} fill="#EEEDE4" stroke="#6B7268" />
+          <circle cx={45} cy={140} r={22} fill="#EEEDE4" stroke="#6B7268" />
+          <text x={45} y={64} textAnchor="middle" className="text-[0.75rem]">x₁={s.x1.toFixed(1)}</text>
+          <text x={45} y={144} textAnchor="middle" className="text-[0.75rem]">x₂={s.x2.toFixed(1)}</text>
+          <text x={125} y={65} className="text-[0.6875rem]" fill="#434B42">w₁={s.w1.toFixed(1)}</text>
+          <text x={125} y={150} className="text-[0.6875rem]" fill="#434B42">w₂={s.w2.toFixed(1)}</text>
+          <circle cx={220} cy={100} r={30} fill={`rgba(79,70,229,${0.15 + Math.min(1, Math.abs(out)) * 0.6})`} stroke="#16564B" strokeWidth={2} />
+          <text x={220} y={96} textAnchor="middle" className="text-[0.6875rem] font-semibold">Σ → {s.act}</text>
+          <text x={220} y={112} textAnchor="middle" className="text-[0.6875rem]">b={s.b.toFixed(1)}</text>
+          <text x={300} y={90} textAnchor="middle" className="text-[0.75rem] font-semibold">y</text>
+          <text x={300} y={118} textAnchor="middle" className="text-[0.75rem]">{out.toFixed(2)}</text>
         </svg>
 
         <div className="space-y-3">

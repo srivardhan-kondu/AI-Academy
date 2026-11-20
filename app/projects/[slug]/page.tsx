@@ -34,7 +34,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       <PageHeader eyebrow={`Project · about ${project.estimatedHours} hours`} title={project.title} description={project.description}>
         <div className="flex gap-2"><DifficultyBadge level={project.difficulty} /><TierBadge tier={project.accessTier} /></div>
       </PageHeader>
-      <div className="container-page grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="container-page grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="min-w-0">
           {allowed ? (
             <Markdown>{project.instructions}</Markdown>

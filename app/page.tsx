@@ -39,7 +39,7 @@ export default async function Home() {
             <p className="mt-1 text-sm text-slate-600">Gradient descent is how most AI models improve. Adjust the learning rate and watch the ball roll downhill.</p>
             <Link href="/labs/gradient-descent" className="mt-4 flex items-center justify-between rounded-xl bg-slate-900 p-4 text-white hover:bg-slate-800">
               <span>
-                <span className="block text-xs uppercase tracking-wider text-brand-200">Interactive lab</span>
+                <span className="block text-xs text-brand-200">Interactive lab</span>
                 <span className="text-lg font-semibold">Gradient descent playground</span>
               </span>
               <ArrowRight aria-hidden className="h-5 w-5" />

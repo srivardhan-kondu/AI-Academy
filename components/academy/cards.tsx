@@ -59,7 +59,7 @@ export function PathCard({
 }) {
   return (
     <Link href={`/academy/paths/${path.slug}`} className="card group flex flex-col p-5 transition hover:border-brand-300 hover:shadow">
-      <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-600">
+      <span className="flex items-center gap-2 text-xs font-semibold text-brand-600">
         <Layers aria-hidden className="h-3.5 w-3.5" /> Learning path
       </span>
       <span className="mt-2 text-lg font-semibold text-slate-900 group-hover:text-brand-700">{path.title}</span>

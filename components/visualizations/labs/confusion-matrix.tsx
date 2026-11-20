@@ -55,21 +55,21 @@ export default function ConfusionMatrix() {
       }
     >
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full rounded-xl border border-slate-200 bg-white" role="img" aria-label={`Twenty cases on a score line from 0 to 1 with a threshold at ${t.toFixed(2)}`}>
-        <rect x={sx(t)} y={0} width={sx(1) - sx(t) + 16} height={H} fill="#eef2ff" />
-        <line x1={16} y1={55} x2={W - 16} y2={55} stroke="#94a3b8" />
-        <line x1={sx(t)} y1={4} x2={sx(t)} y2={H - 4} stroke="#4f46e5" strokeWidth={2} />
-        <text x={sx(t) + 4} y={14} className="text-[10px]" fill="#4f46e5">predicted positive →</text>
-        <text x={18} y={H - 4} className="text-[10px]" fill="#64748b">score 0</text>
-        <text x={W - 18} y={H - 4} textAnchor="end" className="text-[10px]" fill="#64748b">1</text>
+        <rect x={sx(t)} y={0} width={sx(1) - sx(t) + 16} height={H} fill="#EEF2EF" />
+        <line x1={16} y1={55} x2={W - 16} y2={55} stroke="#9EA397" />
+        <line x1={sx(t)} y1={4} x2={sx(t)} y2={H - 4} stroke="#16564B" strokeWidth={2} />
+        <text x={sx(t) + 4} y={14} className="text-[0.625rem]" fill="#16564B">predicted positive →</text>
+        <text x={18} y={H - 4} className="text-[0.625rem]" fill="#6B7268">score 0</text>
+        <text x={W - 18} y={H - 4} textAnchor="end" className="text-[0.625rem]" fill="#6B7268">1</text>
         {CASES.map((c, i) =>
           c.label ? (
-            <circle key={i} cx={sx(c.score)} cy={38} r={6} fill="#db2777" />
+            <circle key={i} cx={sx(c.score)} cy={38} r={6} fill="#B23A2E" />
           ) : (
-            <rect key={i} x={sx(c.score) - 5.5} y={66} width={11} height={11} fill="white" stroke="#0f172a" strokeWidth={1.5} />
+            <rect key={i} x={sx(c.score) - 5.5} y={66} width={11} height={11} fill="white" stroke="#1C241F" strokeWidth={1.5} />
           ),
         )}
-        <text x={W - 16} y={28} textAnchor="end" className="text-[10px]" fill="#9d174d">● has condition</text>
-        <text x={W - 16} y={96} textAnchor="end" className="text-[10px]" fill="#0f172a">□ healthy</text>
+        <text x={W - 16} y={28} textAnchor="end" className="text-[0.625rem]" fill="#8F2E25">● has condition</text>
+        <text x={W - 16} y={96} textAnchor="end" className="text-[0.625rem]" fill="#1C241F">□ healthy</text>
       </svg>
       <Slider id="cm-t" label="Decision threshold" value={t} min={0} max={1} step={0.01} onChange={setT} format={(v) => v.toFixed(2)} />
       <div className="grid gap-6 md:grid-cols-2">
